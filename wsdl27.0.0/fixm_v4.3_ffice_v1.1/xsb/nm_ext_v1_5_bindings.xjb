@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="3.0"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jaxb https://jakarta.ee/xml/ns/jaxb/bindingschema_2_0.xsd">
+
+  <jxb:bindings schemaLocation="./../schemas/extensions/ectl/nm/NmExtension_1.5.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="eurocontrol.cfmu.cua.b2b.ffice.ext.v1_5"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+</jxb:bindings>

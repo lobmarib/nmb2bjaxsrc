@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- B2B revision = 27.0.0.5.128 -->
+<definitions
+    targetNamespace="eurocontrol/cfmu/b2b/AirspaceServices"
+    name="AirspaceServices"
+    xmlns:airspace="eurocontrol/cfmu/b2b/AirspaceServices"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <types>
+    <xs:schema>
+      <xs:import namespace="eurocontrol/cfmu/b2b/AirspaceServices" schemaLocation="AirspaceServices_27.0.0.xsd"/>
+    </xs:schema>
+  </types>
+
+  <message name="AUPChainRetrievalRequest">
+    <part name="parameters" element="airspace:AUPChainRetrievalRequest"/>
+  </message>
+  <message name="AUPChainRetrievalReply">
+    <part name="parameters" element="airspace:AUPChainRetrievalReply"/>
+  </message>
+  <message name="AUPRetrievalRequest">
+    <part name="parameters" element="airspace:AUPRetrievalRequest"/>
+  </message>
+  <message name="AUPRetrievalReply">
+    <part name="parameters" element="airspace:AUPRetrievalReply"/>
+  </message>
+  <message name="AUPCreationRequest">
+    <part name="parameters" element="airspace:AUPCreationRequest"/>
+  </message>
+  <message name="AUPCreationReply">
+    <part name="parameters" element="airspace:AUPCreationReply"/>
+  </message>
+  <message name="AUPUpdateRequest">
+    <part name="parameters" element="airspace:AUPUpdateRequest"/>
+  </message>
+  <message name="AUPUpdateReply">
+    <part name="parameters" element="airspace:AUPUpdateReply"/>
+  </message>
+  <message name="AUPValidationRequest">
+    <part name="parameters" element="airspace:AUPValidationRequest"/>
+  </message>
+  <message name="AUPValidationReply">
+    <part name="parameters" element="airspace:AUPValidationReply"/>
+  </message>
+  <message name="AUPDeletionRequest">
+    <part name="parameters" element="airspace:AUPDeletionRequest"/>
+  </message>
+  <message name="AUPDeletionReply">
+    <part name="parameters" element="airspace:AUPDeletionReply"/>
+  </message>
+  <message name="AUPRSAAllocationExpansionRequest">
+    <part name="parameters" element="airspace:AUPRSAAllocationExpansionRequest"/>
+  </message>
+  <message name="AUPRSAAllocationExpansionReply">
+    <part name="parameters" element="airspace:AUPRSAAllocationExpansionReply"/>
+  </message>
+  <message name="AUPServiceConfigurationRequest">
+    <part name="parameters" element="airspace:AUPServiceConfigurationRequest"/>
+  </message>
+  <message name="AUPServiceConfigurationReply">
+    <part name="parameters" element="airspace:AUPServiceConfigurationReply"/>
+  </message>
+  <message name="EAUPChainRetrievalRequest">
+    <part name="parameters" element="airspace:EAUPChainRetrievalRequest"/>
+  </message>
+  <message name="EAUPChainRetrievalReply">
+    <part name="parameters" element="airspace:EAUPChainRetrievalReply"/>
+  </message>
+  <message name="EAUPCDRRequest">
+    <part name="parameters" element="airspace:EAUPCDRRequest"/>
+  </message>
+  <message name="EAUPCDRReply">
+    <part name="parameters" element="airspace:EAUPCDRReply"/>
+  </message>
+  <message name="EAUPCDRCompareRequest">
+    <part name="parameters" element="airspace:EAUPCDRCompareRequest"/>
+  </message>
+  <message name="EAUPCDRCompareReply">
+    <part name="parameters" element="airspace:EAUPCDRCompareReply"/>
+  </message>
+  <message name="EAUPRSARequest">
+    <part name="parameters" element="airspace:EAUPRSARequest"/>
+  </message>
+  <message name="EAUPRSAReply">
+    <part name="parameters" element="airspace:EAUPRSAReply"/>
+  </message>
+  <message name="EAUPRSACompareRequest">
+    <part name="parameters" element="airspace:EAUPRSACompareRequest"/>
+  </message>
+  <message name="EAUPRSACompareReply">
+    <part name="parameters" element="airspace:EAUPRSACompareReply"/>
+  </message>
+  <message name="AUPGetManageableRoutesForAMCRequest">
+    <part name="parameters" element="airspace:AUPGetManageableRoutesForAMCRequest"/>
+  </message>
+  <message name="AUPGetManageableRoutesForAMCReply">
+    <part name="parameters" element="airspace:AUPGetManageableRoutesForAMCReply"/>
+  </message>
+  <message name="AUPGetManageableRouteSegmentsForAMCAndRouteRequest">
+    <part name="parameters" element="airspace:AUPGetManageableRouteSegmentsForAMCAndRouteRequest"/>
+  </message>
+  <message name="AUPGetManageableRouteSegmentsForAMCAndRouteReply">
+    <part name="parameters" element="airspace:AUPGetManageableRouteSegmentsForAMCAndRouteReply"/>
+  </message>
+  <message name="DraftEAUPsRetrievalRequest">
+    <part name="parameters" element="airspace:DraftEAUPsRetrievalRequest"/>
+  </message>
+  <message name="DraftEAUPsRetrievalReply">
+    <part name="parameters" element="airspace:DraftEAUPsRetrievalReply"/>
+  </message>
+  <message name="DraftEAUPRSARequest">
+    <part name="parameters" element="airspace:DraftEAUPRSARequest"/>
+  </message>
+  <message name="DraftEAUPRSAReply">
+    <part name="parameters" element="airspace:DraftEAUPRSAReply"/>
+  </message>
+  <message name="DraftEAUPCDRRequest">
+    <part name="parameters" element="airspace:DraftEAUPCDRRequest"/>
+  </message>
+  <message name="DraftEAUPCDRReply">
+    <part name="parameters" element="airspace:DraftEAUPCDRReply"/>
+  </message>
+  <message name="ASMScenarioListRequest">
+    <part name="parameters" element="airspace:ASMScenarioListRequest"/>
+  </message>
+  <message name="ASMScenarioListReply">
+    <part name="parameters" element="airspace:ASMScenarioListReply"/>
+  </message>
+  <message name="ASMScenarioActivationListRequest">
+    <part name="parameters" element="airspace:ASMScenarioActivationListRequest"/>
+  </message>
+  <message name="ASMScenarioActivationListReply">
+    <part name="parameters" element="airspace:ASMScenarioActivationListReply"/>
+  </message>
+  <message name="ASMScenarioActivationCreationRequest">
+    <part name="parameters" element="airspace:ASMScenarioActivationCreationRequest"/>
+  </message>
+  <message name="ASMScenarioActivationCreationReply">
+    <part name="parameters" element="airspace:ASMScenarioActivationCreationReply"/>
+  </message>
+  <message name="ASMScenarioActivationUpdateRequest">
+    <part name="parameters" element="airspace:ASMScenarioActivationUpdateRequest"/>
+  </message>
+  <message name="ASMScenarioActivationUpdateReply">
+    <part name="parameters" element="airspace:ASMScenarioActivationUpdateReply"/>
+  </message>
+  <message name="ASMScenarioActivationDeletionRequest">
+    <part name="parameters" element="airspace:ASMScenarioActivationDeletionRequest"/>
+  </message>
+  <message name="ASMScenarioActivationDeletionReply">
+    <part name="parameters" element="airspace:ASMScenarioActivationDeletionReply"/>
+  </message>
+  <message name="EAUPSubscriptionCreationRequest">
+    <part name="parameters" element="airspace:EAUPSubscriptionCreationRequest"/>
+  </message>
+  <message name="EAUPSubscriptionCreationReply">
+    <part name="parameters" element="airspace:EAUPSubscriptionCreationReply"/>
+  </message>
+  <message name="EAUPSubscriptionUpdateRequest">
+    <part name="parameters" element="airspace:EAUPSubscriptionUpdateRequest"/>
+  </message>
+  <message name="EAUPSubscriptionUpdateReply">
+    <part name="parameters" element="airspace:EAUPSubscriptionUpdateReply"/>
+  </message>
+  <message name="EAUPSubscriptionRetrievalRequest">
+    <part name="parameters" element="airspace:EAUPSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="EAUPSubscriptionRetrievalReply">
+    <part name="parameters" element="airspace:EAUPSubscriptionRetrievalReply"/>
+  </message>
+  <message name="RADRestrictionActivationListRequest">
+    <part name="parameters" element="airspace:RADRestrictionActivationListRequest"/>
+  </message>
+  <message name="RADRestrictionActivationListReply">
+    <part name="parameters" element="airspace:RADRestrictionActivationListReply"/>
+  </message>
+  <message name="RADRestrictionActivationsUpdateRequest">
+    <part name="parameters" element="airspace:RADRestrictionActivationsUpdateRequest"/>
+  </message>
+  <message name="RADRestrictionActivationsUpdateReply">
+    <part name="parameters" element="airspace:RADRestrictionActivationsUpdateReply"/>
+  </message>
+  <message name="EAUPRADRestrictionActivationRequest">
+    <part name="parameters" element="airspace:EAUPRADRestrictionActivationRequest"/>
+  </message>
+  <message name="EAUPRADRestrictionActivationReply">
+    <part name="parameters" element="airspace:EAUPRADRestrictionActivationReply"/>
+  </message>
+  <message name="EAUPRADRestrictionActivationCompareRequest">
+    <part name="parameters" element="airspace:EAUPRADRestrictionActivationCompareRequest"/>
+  </message>
+  <message name="EAUPRADRestrictionActivationCompareReply">
+    <part name="parameters" element="airspace:EAUPRADRestrictionActivationCompareReply"/>
+  </message>
+  <message name="DraftEAUPRADRestrictionActivationRequest">
+    <part name="parameters" element="airspace:DraftEAUPRADRestrictionActivationRequest"/>
+  </message>
+  <message name="DraftEAUPRADRestrictionActivationReply">
+    <part name="parameters" element="airspace:DraftEAUPRADRestrictionActivationReply"/>
+  </message>
+
+  <portType name="AirspaceAvailabilityService">
+    <operation name="retrieveAUPChain">
+      <input message="airspace:AUPChainRetrievalRequest"/>
+      <output message="airspace:AUPChainRetrievalReply"/>
+    </operation>
+    <operation name="retrieveAUP">
+      <input message="airspace:AUPRetrievalRequest"/>
+      <output message="airspace:AUPRetrievalReply"/>
+    </operation>
+    <operation name="createAUP">
+      <input message="airspace:AUPCreationRequest"/>
+      <output message="airspace:AUPCreationReply"/>
+    </operation>
+    <operation name="updateAUP">
+      <input message="airspace:AUPUpdateRequest"/>
+      <output message="airspace:AUPUpdateReply"/>
+    </operation>
+    <operation name="validateAUP">
+      <input message="airspace:AUPValidationRequest"/>
+      <output message="airspace:AUPValidationReply"/>
+    </operation>
+    <operation name="deleteAUP">
+      <input message="airspace:AUPDeletionRequest"/>
+      <output message="airspace:AUPDeletionReply"/>
+    </operation>
+    <operation name="expandRSAAllocations">
+      <input message="airspace:AUPRSAAllocationExpansionRequest"/>
+      <output message="airspace:AUPRSAAllocationExpansionReply"/>
+    </operation>
+    <operation name="getAUPServiceConfiguration">
+      <input message="airspace:AUPServiceConfigurationRequest"/>
+      <output message="airspace:AUPServiceConfigurationReply"/>
+    </operation>
+    <operation name="retrieveEAUPChain">
+      <input message="airspace:EAUPChainRetrievalRequest"/>
+      <output message="airspace:EAUPChainRetrievalReply"/>
+    </operation>
+    <operation name="retrieveEAUPCDRs">
+      <input message="airspace:EAUPCDRRequest"/>
+      <output message="airspace:EAUPCDRReply"/>
+    </operation>
+    <operation name="compareEAUPCDRs">
+      <input message="airspace:EAUPCDRCompareRequest"/>
+      <output message="airspace:EAUPCDRCompareReply"/>
+    </operation>
+    <operation name="retrieveEAUPRSAs">
+      <input message="airspace:EAUPRSARequest"/>
+      <output message="airspace:EAUPRSAReply"/>
+    </operation>
+    <operation name="compareEAUPRSAs">
+      <input message="airspace:EAUPRSACompareRequest"/>
+      <output message="airspace:EAUPRSACompareReply"/>
+    </operation>
+    <operation name="getManageableRoutesForAMC">
+      <input message="airspace:AUPGetManageableRoutesForAMCRequest"/>
+      <output message="airspace:AUPGetManageableRoutesForAMCReply"/>
+    </operation>
+    <operation name="getManageableRouteSegmentsForAMCAndRoute">
+      <input message="airspace:AUPGetManageableRouteSegmentsForAMCAndRouteRequest"/>
+      <output message="airspace:AUPGetManageableRouteSegmentsForAMCAndRouteReply"/>
+    </operation>
+    <operation name="retrieveDraftEAUPSummaries">
+      <input message="airspace:DraftEAUPsRetrievalRequest"/>
+      <output message="airspace:DraftEAUPsRetrievalReply"/>
+    </operation>
+    <operation name="retrieveDraftEAUPRSAs">
+      <input message="airspace:DraftEAUPRSARequest"/>
+      <output message="airspace:DraftEAUPRSAReply"/>
+    </operation>
+    <operation name="retrieveDraftEAUPCDRs">
+      <input message="airspace:DraftEAUPCDRRequest"/>
+      <output message="airspace:DraftEAUPCDRReply"/>
+    </operation>
+    <operation name="queryASMScenarios">
+      <input message="airspace:ASMScenarioListRequest"/>
+      <output message="airspace:ASMScenarioListReply"/>
+    </operation>
+    <operation name="queryASMScenarioActivations">
+      <input message="airspace:ASMScenarioActivationListRequest"/>
+      <output message="airspace:ASMScenarioActivationListReply"/>
+    </operation>
+    <operation name="createASMScenarioActivation">
+      <input message="airspace:ASMScenarioActivationCreationRequest"/>
+      <output message="airspace:ASMScenarioActivationCreationReply"/>
+    </operation>
+    <operation name="updateASMScenarioActivation">
+      <input message="airspace:ASMScenarioActivationUpdateRequest"/>
+      <output message="airspace:ASMScenarioActivationUpdateReply"/>
+    </operation>
+    <operation name="deleteASMScenarioActivation">
+      <input message="airspace:ASMScenarioActivationDeletionRequest"/>
+      <output message="airspace:ASMScenarioActivationDeletionReply"/>
+    </operation>
+    <operation name="createEAUPSubscription">
+      <input message="airspace:EAUPSubscriptionCreationRequest"/>
+      <output message="airspace:EAUPSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateEAUPSubscription">
+      <input message="airspace:EAUPSubscriptionUpdateRequest"/>
+      <output message="airspace:EAUPSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveEAUPSubscription">
+      <input message="airspace:EAUPSubscriptionRetrievalRequest"/>
+      <output message="airspace:EAUPSubscriptionRetrievalReply"/>
+    </operation>
+    <operation name="queryRADRestrictionActivations">
+      <input message="airspace:RADRestrictionActivationListRequest"/>
+      <output message="airspace:RADRestrictionActivationListReply"/>
+    </operation>
+    <operation name="updateRADRestrictionActivations">
+      <input message="airspace:RADRestrictionActivationsUpdateRequest"/>
+      <output message="airspace:RADRestrictionActivationsUpdateReply"/>
+    </operation>
+    <operation name="retrieveEAUPRADRestrictionActivations">
+      <input message="airspace:EAUPRADRestrictionActivationRequest"/>
+      <output message="airspace:EAUPRADRestrictionActivationReply"/>
+    </operation>
+    <operation name="compareEAUPRADRestrictionActivations">
+      <input message="airspace:EAUPRADRestrictionActivationCompareRequest"/>
+      <output message="airspace:EAUPRADRestrictionActivationCompareReply"/>
+    </operation>
+    <operation name="retrieveDraftEAUPRADRestrictionActivations">
+      <input message="airspace:DraftEAUPRADRestrictionActivationRequest"/>
+      <output message="airspace:DraftEAUPRADRestrictionActivationReply"/>
+    </operation>
+  </portType>
+
+  <binding name="AirspaceAvailabilityPortBinding" type="airspace:AirspaceAvailabilityService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="retrieveAUPChain">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveAUP">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createAUP">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateAUP">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="validateAUP">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteAUP">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="expandRSAAllocations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAUPServiceConfiguration">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveEAUPChain">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveEAUPCDRs">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="compareEAUPCDRs">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveEAUPRSAs">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="compareEAUPRSAs">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getManageableRoutesForAMC">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getManageableRouteSegmentsForAMCAndRoute">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveDraftEAUPSummaries">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveDraftEAUPRSAs">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveDraftEAUPCDRs">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryASMScenarios">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryASMScenarioActivations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createASMScenarioActivation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateASMScenarioActivation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteASMScenarioActivation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createEAUPSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateEAUPSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveEAUPSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryRADRestrictionActivations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRADRestrictionActivations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveEAUPRADRestrictionActivations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="compareEAUPRADRestrictionActivations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveDraftEAUPRADRestrictionActivations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="AirspaceAvailabilityService">
+    <port name="AirspaceAvailabilityPort" binding="airspace:AirspaceAvailabilityPortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="CompleteAIXMDatasetRequest">
+    <part name="parameters" element="airspace:CompleteAIXMDatasetRequest"/>
+  </message>
+  <message name="CompleteAIXMDatasetReply">
+    <part name="parameters" element="airspace:CompleteAIXMDatasetReply"/>
+  </message>
+  <message name="IncrementalAIXMDatasetRequest">
+    <part name="parameters" element="airspace:IncrementalAIXMDatasetRequest"/>
+  </message>
+  <message name="IncrementalAIXMDatasetReply">
+    <part name="parameters" element="airspace:IncrementalAIXMDatasetReply"/>
+  </message>
+  <message name="AirspaceDataIncrementListRequest">
+    <part name="parameters" element="airspace:AirspaceDataIncrementListRequest"/>
+  </message>
+  <message name="AirspaceDataIncrementListReply">
+    <part name="parameters" element="airspace:AirspaceDataIncrementListReply"/>
+  </message>
+  <message name="AirspaceDataIncrementRetrievalRequest">
+    <part name="parameters" element="airspace:AirspaceDataIncrementRetrievalRequest"/>
+  </message>
+  <message name="AirspaceDataIncrementRetrievalReply">
+    <part name="parameters" element="airspace:AirspaceDataIncrementRetrievalReply"/>
+  </message>
+  <message name="AirspaceDataRetrievalRequest">
+    <part name="parameters" element="airspace:AirspaceDataRetrievalRequest"/>
+  </message>
+  <message name="AirspaceDataRetrievalReply">
+    <part name="parameters" element="airspace:AirspaceDataRetrievalReply"/>
+  </message>
+  <message name="AirspaceDataSubscriptionCreationRequest">
+    <part name="parameters" element="airspace:AirspaceDataSubscriptionCreationRequest"/>
+  </message>
+  <message name="AirspaceDataSubscriptionCreationReply">
+    <part name="parameters" element="airspace:AirspaceDataSubscriptionCreationReply"/>
+  </message>
+  <message name="AirspaceDataSubscriptionUpdateRequest">
+    <part name="parameters" element="airspace:AirspaceDataSubscriptionUpdateRequest"/>
+  </message>
+  <message name="AirspaceDataSubscriptionUpdateReply">
+    <part name="parameters" element="airspace:AirspaceDataSubscriptionUpdateReply"/>
+  </message>
+  <message name="AirspaceDataSubscriptionRetrievalRequest">
+    <part name="parameters" element="airspace:AirspaceDataSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="AirspaceDataSubscriptionRetrievalReply">
+    <part name="parameters" element="airspace:AirspaceDataSubscriptionRetrievalReply"/>
+  </message>
+
+  <portType name="AirspaceStructureService">
+    <operation name="queryCompleteAIXMDatasets">
+      <input message="airspace:CompleteAIXMDatasetRequest"/>
+      <output message="airspace:CompleteAIXMDatasetReply"/>
+    </operation>
+    <operation name="queryIncrementalAIXMDatasets">
+      <input message="airspace:IncrementalAIXMDatasetRequest"/>
+      <output message="airspace:IncrementalAIXMDatasetReply"/>
+    </operation>
+    <operation name="queryAirspaceDataIncrements">
+      <input message="airspace:AirspaceDataIncrementListRequest"/>
+      <output message="airspace:AirspaceDataIncrementListReply"/>
+    </operation>
+    <operation name="retrieveAirspaceDataIncrement">
+      <input message="airspace:AirspaceDataIncrementRetrievalRequest"/>
+      <output message="airspace:AirspaceDataIncrementRetrievalReply"/>
+    </operation>
+    <operation name="retrieveAirspaceData">
+      <input message="airspace:AirspaceDataRetrievalRequest"/>
+      <output message="airspace:AirspaceDataRetrievalReply"/>
+    </operation>
+    <operation name="createAirspaceDataSubscription">
+      <input message="airspace:AirspaceDataSubscriptionCreationRequest"/>
+      <output message="airspace:AirspaceDataSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateAirspaceDataSubscription">
+      <input message="airspace:AirspaceDataSubscriptionUpdateRequest"/>
+      <output message="airspace:AirspaceDataSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveAirspaceDataSubscription">
+      <input message="airspace:AirspaceDataSubscriptionRetrievalRequest"/>
+      <output message="airspace:AirspaceDataSubscriptionRetrievalReply"/>
+    </operation>
+  </portType>
+
+  <binding name="AirspaceStructurePortBinding" type="airspace:AirspaceStructureService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="queryCompleteAIXMDatasets">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryIncrementalAIXMDatasets">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryAirspaceDataIncrements">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveAirspaceDataIncrement">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveAirspaceData">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createAirspaceDataSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateAirspaceDataSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveAirspaceDataSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="AirspaceStructureService">
+    <port name="AirspaceStructurePort" binding="airspace:AirspaceStructurePortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+
+</definitions>

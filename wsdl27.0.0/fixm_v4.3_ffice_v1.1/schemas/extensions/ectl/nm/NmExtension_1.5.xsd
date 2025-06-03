@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:nmext="http://www.eurocontrol.int/nm/fixm/ext/1.5" xmlns:ffice="http://www.fixm.aero/app/ffice/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fx="http://www.fixm.aero/flight/4.3" xmlns:fb="http://www.fixm.aero/base/4.3" targetNamespace="http://www.eurocontrol.int/nm/fixm/ext/1.5" elementFormDefault="qualified" version="1.5.0">
+	<xs:annotation>
+		<xs:documentation>
+=========================================== 		
+Copyright (c) 2023 EUROCONTROL
+=========================================== 
+All rights reserved. 
+          
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
+Redistributions of source code must retain the above copyright notice, this list of conditions and the disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the disclaimer in the documentation and/or other materials provided with the distribution.
+Neither the name of EUROCONTROL nor the names of their contributors may be used to endorse or promote products derived from this specification without specific prior written permission.
+          
+DISCLAIMER 
+          
+THIS SPECIFICATION IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+          
+
+Editorial note: this license is an instance of the BSD license template as provided by the Open Source Initiative: 
+http://www.opensource.org/licenses/bsd-license.php 
+          
+The authoritative reference for FIXM is www.FIXM.aero. 
+          
+Details on EUROCONTROL: http://www.eurocontrol.int/ 
+		</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>The NM extension captures the supplementary Flight and Messaging data elements required for FF-ICE that are exchanged between NM and Users.</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.fixm.aero/flight/4.3" schemaLocation="../../../core/flight/flightroutetrajectory/RouteTrajectory.xsd"/>
+	<xs:import namespace="http://www.fixm.aero/base/4.3" schemaLocation="../../../core/base/Measures.xsd"/>
+	<xs:import namespace="http://www.fixm.aero/base/4.3" schemaLocation="../../../core/base/Types.xsd"/>
+	<xs:import namespace="http://www.fixm.aero/base/4.3" schemaLocation="../../../core/base/Extension.xsd"/>
+	<xs:import namespace="http://www.fixm.aero/app/ffice/1.1" schemaLocation="../../../applications/fficemessage/FficeMessage.xsd"/>
+	<xs:simpleType name="EurIndicatorType">
+		<xs:annotation>
+			<xs:documentation>An indication of an exemption or special status applicable to a flight within the ICAO EUR region [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OAT">
+				<xs:annotation>
+					<xs:documentation>A Flight which do not comply with the provisions stated for general air traffic and for which rules and procedures have been specified by appropriate national authorities.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>				
+			<xs:enumeration value="PROTECTED">
+				<xs:annotation>
+					<xs:documentation>Flight for which the details should only be available to a restricted audience (e.g. a security sensitive flight)  [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FilingIdType">
+		<xs:annotation>
+			<xs:documentation>Id of the received submission request when it results in queuing for manual correction by an NM operator. This id is to be used when subsequently retrieving the submission status. [B2B Manuals]</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="fb:CharacterStringType">
+			<xs:pattern value="([A-Z]{2}[0-9]{8}){1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IfpIndicatorType">
+		<xs:annotation>
+			<xs:documentation>A list of errors returned by the IFPS which could be operationally significant but which did not lead to the rejection of the FF-ICE flight plan and associated messages.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="833UNKNOWN">
+				<xs:annotation>
+					<xs:documentation>Flight compliance with 8.33 kHz requirements is unknown. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERREOBT">
+				<xs:annotation>
+					<xs:documentation>An earlier estimated off-block time exists. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERREQPT">
+				<xs:annotation>
+					<xs:documentation>An error in the aircraft equipment has been corrected. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERRLEVEL">
+				<xs:annotation>
+					<xs:documentation>An error that cannot be corrected has been found in the requested flight level. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERROUTE">
+				<xs:annotation>
+					<xs:documentation>An error that cannot be corrected has been found in the route. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERROUTRAD">
+				<xs:annotation>
+					<xs:documentation>The route does not conform to the RAD rules. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERROUTWE">
+				<xs:annotation>
+					<xs:documentation>The route does not conform to weekend routings. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERRTYPE">
+				<xs:annotation>
+					<xs:documentation>An error that cannot be corrected has been found in the aircraft type. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IFPSROUTEMOD">
+				<xs:annotation>
+					<xs:documentation>The route has been manually modified. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MODESASP">
+				<xs:annotation>
+					<xs:documentation>Flight is compliant with SSR Mode S surveillance requirements. [adapted from the IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NON833">
+				<xs:annotation>
+					<xs:documentation>Flight does not comply with 8.33 kHz requirements. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NONRVSM">
+				<xs:annotation>
+					<xs:documentation>Flight is not RVSM approved. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RVSMUNKNOWN">
+				<xs:annotation>
+					<xs:documentation>RVSM approval status of the flight is unknown. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RVSMVIOLATION">
+				<xs:annotation>
+					<xs:documentation>Flight violates RVSM rules, flight plan originator cannot be contacted. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERRRTECOORD">
+				<xs:annotation>
+					<xs:documentation>The filed route has been coordinated with ATC. [IFPS Users Manual]</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IfpsIdentifierType">
+		<xs:annotation>
+			<xs:documentation>A unique flight plan identifier, assigned by the IFPS. [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="fb:CharacterStringType">
+			<xs:pattern value="[A-Z]{2}[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StayInfoType">
+		<xs:annotation>
+			<xs:documentation>Information concerning the type of activity (training, photographic mission, etc.) to be performed during a ???stay??? period in the route of a flight. [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="fb:CharacterStringType">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="NmFficeMessageExtensionType">
+		<xs:annotation>
+			<xs:documentation>An extension to the FficeMessage class.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ffice:FficeMessageExtensionType">
+				<xs:sequence>
+					<xs:element name="isNegotiatingTrajectoryRequested" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>TO BE DEFINED</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NmFlightExtensionType">
+		<xs:annotation>
+			<xs:documentation>An extension to the Flight class.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="fb:FlightExtensionType">
+				<xs:sequence>
+					<xs:element name="aoWhatIfReRouteIndicator" type="fb:CountType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A reference included in the flight plan when the flight has been re-routed using the 'AO What-If-Reroute' mechanism. [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="eurSpecialHandling" type="nmext:EurIndicatorType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>An indication of an exemption or special status applicable to a flight within the ICAO EUR region [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ifpsFlightPlanIndicator" type="nmext:IfpIndicatorType" nillable="true" minOccurs="0" maxOccurs="15">
+						<xs:annotation>
+							<xs:documentation>An indicator or flag used by IFPS to warn or to notify ATC units of additional information concerning a flight plan. [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ifpsIdentifier" type="nmext:IfpsIdentifierType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A unique flight plan identifier, assigned by the IFPS. [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="replacementFlightPlanIndicator" type="fb:CountType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A reference included in a replacement flight plan that contains an alternative routing. [adapted from ICAO Doc 7030 - Regional Supplementary Procedures for the EUR Region]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="stayInformation" type="nmext:StayInfoType" nillable="true" minOccurs="0" maxOccurs="9">
+						<xs:annotation>
+							<xs:documentation>Information concerning the type of activity (training, photographic mission, etc.) to be performed during a ???stay??? period in the route of a flight. [EUROCONTROL Specification for ATS Data Exchange Presentation (ADEXP)]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NmFlightRouteInformationExtensionType">
+		<xs:complexContent>
+			<xs:extension base="fb:FlightRouteInformationExtensionType">
+				<xs:sequence>
+					<xs:element name="estimatedElapsedTime" type="fx:EstimatedElapsedTimeType" nillable="true" minOccurs="0" maxOccurs="2000">
+						<xs:annotation>
+							<xs:documentation>The estimated amount of time from takeoff to reach a significant point or Flight Information Region (FIR) boundary along the route of flight. Elements are ordered according to increasing duration from start.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="routeText" type="fb:CharacterStringType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>A string of route elements complying with PANS-ATM Item 15c.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NmRouteTrajectoryElementExtensionType">
+		<xs:annotation>
+			<xs:documentation>An extension to the RouteTrajectoryElement class.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="fb:RouteTrajectoryElementExtensionType">
+				<xs:sequence>
+					<xs:element name="militaryFlightRulesChange" type="nmext:MilitaryFlightRules" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Describes a planned change of military flight rules, i.e. whether the flight will change to OAT or to GAT.</xs:documentation>
+						</xs:annotation>
+					</xs:element>	
+					<xs:element name="weight" type="fb:WeightType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The (decreasing) total weight of the aircraft at the corresponding route/trajectory element starting point, reflecting fuel burn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>				
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NmRouteTrajectoryGroupContainerExtensionType">
+		<xs:annotation>
+			<xs:documentation>An extension to the RouteTrajectoryGroupContainer class.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="fb:RouteTrajectoryGroupContainerExtensionType">
+				<xs:sequence>
+					<xs:element name="rejected" type="fx:RouteTrajectoryGroupType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>TO BE DEFINED</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NmSubmissionStatusExtensionType">
+		<xs:annotation>
+			<xs:documentation>An extension to the SubmissionStatus class.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ffice:SubmissionStatusExtensionType">
+				<xs:sequence>
+					<xs:element name="filingId" type="nmext:FilingIdType" nillable="true" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Id of the received submission request when it results in queuing for manual correction by an NM operator. This id is to be used when subsequently retrieving the submission status. [B2B Manuals]</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="MilitaryFlightRules">
+		<xs:annotation>
+			<xs:documentation>A European classification of flights, distinguishing between flights conducted in accordance with the rules and procedures of ICAO and flights commonly operated by military agencies which do not comply with ICAO rules and procedures.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GAT">
+				<xs:annotation>
+					<xs:documentation>General Air Traffic - A Flight conducted in accordance with the rules and procedures of ICAO.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OAT">
+				<xs:annotation>
+					<xs:documentation>Operational Air Traffic - A Flight which do not comply with the provisions stated for general air traffic and for which rules and procedures have been specified by appropriate national authorities.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>

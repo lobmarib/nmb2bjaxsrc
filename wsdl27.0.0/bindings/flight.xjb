@@ -1,0 +1,36 @@
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+	jaxb:extensionBindingPrefixes="xjc">
+
+
+	<jaxb:bindings schemaLocation="../FlightServices_27.0.0.xsd"  node="/xs:schema">
+			<jaxb:schemaBindings>
+				<jaxb:package name="eurocontrol.cfmu.b2b27.flightservices"/>
+			</jaxb:schemaBindings>
+	</jaxb:bindings>
+
+	<!-- START : NMVP Extra Bindings -->
+	<jaxb:bindings
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+			version="2.1">
+		<jaxb:bindings schemaLocation="../FlightServices_27.0.0.xsd">
+
+			<!--<jaxb:bindings multiple="true" node=".//xsd:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType">
+				<jaxb:class name="InnerValue"/>
+			</jaxb:bindings>
+			<jaxb:bindings multiple="true" node=".//xsd:element[@name!='value']/xs:complexType/xs:sequence/xsd:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+				<jaxb:class name="InnerItem"/>
+			</jaxb:bindings>
+
+			<jaxb:bindings multiple="true" node=".//xsd:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+				<jaxb:class name="InnerInnerItem"/>
+			</jaxb:bindings>-->
+		</jaxb:bindings>
+	</jaxb:bindings>
+	<!-- END : NMVP Extra Bindings -->
+
+</jaxb:bindings>
+
+

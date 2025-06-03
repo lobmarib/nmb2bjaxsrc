@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="eurocontrol/cfmu/b2b/ARESServices"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ares="eurocontrol/cfmu/b2b/ARESServices"
+           xmlns:airspace="eurocontrol/cfmu/b2b/AirspaceServices"
+           xmlns:common="eurocontrol/cfmu/b2b/CommonServices" version="1.0">
+    <xs:import namespace="eurocontrol/cfmu/b2b/FlowServices" schemaLocation="FlowServices_27.0.0.xsd"/>
+    <xs:import namespace="eurocontrol/cfmu/b2b/FlightServices" schemaLocation="FlightServices_27.0.0.xsd"/>
+    <xs:import namespace="eurocontrol/cfmu/b2b/AirspaceServices" schemaLocation="AirspaceServices_27.0.0.xsd"/>
+    <xs:import namespace="eurocontrol/cfmu/b2b/CommonServices" schemaLocation="CommonServices_27.0.0.xsd"/>
+    <xs:element name="AresVolumeSetCreationRequest" type="ares:AresVolumeSetCreationRequest"/>
+    <xs:element name="AresVolumeSetCreationReply" type="ares:AresVolumeSetCreationReply"/>
+    <xs:element name="AresVolumeSetUpdateRequest" type="ares:AresVolumeSetUpdateRequest"/>
+    <xs:element name="AresVolumeSetUpdateReply" type="ares:AresVolumeSetUpdateReply"/>
+    <xs:element name="AresVolumeSetVerificationRequest" type="ares:AresVolumeSetVerificationRequest"/>
+    <xs:element name="AresVolumeSetVerificationReply" type="ares:AresVolumeSetVerificationReply"/>
+    <xs:element name="AresVolumeSetListRequest" type="ares:AresVolumeSetListRequest"/>
+    <xs:element name="AresVolumeSetListReply" type="ares:AresVolumeSetListReply"/>
+    <xs:element name="AtcVolumeSetCreationRequest" type="ares:AtcVolumeSetCreationRequest"/>
+    <xs:element name="AtcVolumeSetCreationReply" type="ares:AtcVolumeSetCreationReply"/>
+    <xs:element name="AtcVolumeSetUpdateRequest" type="ares:AtcVolumeSetUpdateRequest"/>
+    <xs:element name="AtcVolumeSetUpdateReply" type="ares:AtcVolumeSetUpdateReply"/>
+    <xs:element name="AtcVolumeSetListReply" type="ares:AtcVolumeSetListReply"/>
+    <xs:element name="AtcVolumeSetListRequest" type="ares:AtcVolumeSetListRequest"/>
+    <xs:element name="DynamicVolumeSetMessage" type="ares:DynamicVolumeSetMessage"/>
+    <xs:element name="DynamicVolumeSetSubscriptionCreationRequest" type="ares:DynamicVolumeSetSubscriptionCreationRequest"/>
+    <xs:element name="DynamicVolumeSetSubscriptionCreationReply" type="ares:DynamicVolumeSetSubscriptionCreationReply"/>
+    <xs:element name="DynamicVolumeSetSubscriptionUpdateRequest" type="ares:DynamicVolumeSetSubscriptionUpdateRequest"/>
+    <xs:element name="DynamicVolumeSetSubscriptionUpdateReply" type="ares:DynamicVolumeSetSubscriptionUpdateReply"/>
+    <xs:element name="DynamicVolumeSetSubscriptionRetrievalRequest" type="ares:DynamicVolumeSetSubscriptionRetrievalRequest"/>
+    <xs:element name="DynamicVolumeSetSubscriptionRetrievalReply" type="ares:DynamicVolumeSetSubscriptionRetrievalReply"/>
+    <xs:element name="OptimiseDMALocationRequest" type="ares:OptimiseDMALocationRequest"/>
+    <xs:element name="OptimiseDMALocationReply" type="ares:OptimiseDMALocationReply"/>
+    <xs:element name="OptimiseDMALocationReplyData" type="ares:OptimiseDMALocationReplyData"/>
+    <xs:element name="OptimiseDMALocationResultsRetrievalRequest" type="ares:OptimiseDMALocationResultsRetrievalRequest"/>
+    <xs:element name="OptimiseDMALocationResultsRetrievalReply" type="ares:OptimiseDMALocationResultsRetrievalReply"/>
+    <xs:element name="OptimiseDMALocationResultsRetrievalReplyData" type="ares:OptimiseDMALocationResultsRetrievalReplyData"/>
+
+    <xs:simpleType name="DynamicVolumeSetId">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".{1,20}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeId">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".{1,20}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeSetIdWildcard">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="((.{1,20})|(.{0,19}(\*)))"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeIdWildcard">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="((.{1,20})|(.{0,19}(\*)))"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeSetDescription">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeSetStatus">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="INTENT"/>
+                    <xs:enumeration value="DRAFT"/>
+                    <xs:enumeration value="FINAL"/>
+                    <xs:enumeration value="CANCELLED"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="OTHER:[a-zA-Z_][a-zA-Z0-9_]*"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeSetKind">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="ARES_RESERVATION"/>
+                    <xs:enumeration value="ATC_VOLUME_DEFINITION"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="OTHER:[a-zA-Z_][a-zA-Z0-9_]*"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeMinimumLevelBandSize">
+        <xs:restriction base="xs:nonNegativeInteger">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DynamicVolumeRank">
+        <xs:restriction base="xs:nonNegativeInteger">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FlexibilityReferencePointType">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="AERODROME"/>
+                    <xs:enumeration value="PUBLISHED_POINT"/>
+                    <xs:enumeration value="GEO_POINT"/>
+                    <xs:enumeration value="DYNAMIC_VOLUME"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="OTHER:[a-zA-Z_][a-zA-Z0-9_]*"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:complexType name="FlexibilityReferencePointId">
+        <xs:choice>
+            <xs:element name="aerodrome" type="airspace:AerodromeICAOId" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="point" type="airspace:PublishedPointId" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="geographicPosition" type="airspace:GeoPoint" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dynamicVolume" type="ares:DynamicVolumeId" minOccurs="1" maxOccurs="1"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="DistanceFlexibility" abstract="false">
+        <xs:sequence>
+            <xs:element name="minimumDistanceToReferencePoint" type="common:DistanceNM" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="maximumDistanceToReferencePoint" type="common:DistanceNM" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BearingFlexibility" abstract="false">
+        <xs:sequence>
+            <xs:element name="startBearingFromReferencePoint" type="common:Bearing" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="endBearingFromReferencePoint" type="common:Bearing" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumePositionFlexibility" abstract="false">
+        <xs:sequence>
+            <xs:element name="referencePoint" type="ares:FlexibilityReferencePointId" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="distanceFlexibility" type="ares:DistanceFlexibility" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="bearingFlexibility" type="ares:BearingFlexibility" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LevelBandFlexibility" abstract="false">
+        <xs:sequence>
+            <xs:element name="flexibleLevelBand" type="airspace:FlightLevelRange" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="minimumLevelBandSize" type="ares:DynamicVolumeMinimumLevelBandSize" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ActivationFlexibility" abstract="false">
+        <xs:sequence>
+            <xs:element name="flexibleActivationTime" type="common:DateTimeMinutePeriod" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="minimumActivationDuration" type="common:DurationHourMinute" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeFlexibility" abstract="false">
+        <xs:sequence>
+            <xs:element name="levelBandFlexibility" type="ares:LevelBandFlexibility" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="activationFlexibility" type="ares:ActivationFlexibility" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="positionFlexibility" type="ares:DynamicVolumePositionFlexibility" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VolumeDefinition4D" abstract="false">
+        <xs:sequence>
+            <xs:element name="referenceAirspaceId" type="airspace:AirspaceId" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="shape" type="airspace:GeoPoint" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="closestPointToReference" type="airspace:GeoPoint" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="closestPointOnReference" type="airspace:GeoPoint" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="levelBand" type="airspace:FlightLevelRange" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="activationTime" type="common:DateTimeMinutePeriod" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolume" abstract="false">
+        <xs:sequence>
+            <xs:element name="dynamicVolumeId" type="ares:DynamicVolumeId" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="definition4D" type="ares:VolumeDefinition4D" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="negotiable" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="flexibility" type="ares:DynamicVolumeFlexibility" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="rank" type="ares:DynamicVolumeRank" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="UUID" type="common:UUID" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSet" abstract="false">
+        <xs:sequence>
+            <xs:element name="dataset" type="common:Dataset" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dataId" type="common:PlanDataId" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="timestamp" type="common:DateTimeSecond" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dynamicVolumeSetId" type="ares:DynamicVolumeSetId" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="description" type="ares:DynamicVolumeSetDescription" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="status" type="ares:DynamicVolumeSetStatus" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="kind" type="ares:DynamicVolumeSetKind" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="lastUpdatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="creatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="overlapWarnings" type="ares:DynamicVolumeSetOverlapWarning" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="flexibilityWarnings" type="ares:DynamicVolumeSetFlexibilityWarning" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dynamicVolumes" type="ares:DynamicVolume" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="UUID" type="common:UUID" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeOverlapWarning" abstract="false">
+        <xs:sequence>
+            <xs:element name="otherDynamicVolumeSetKind" type="ares:DynamicVolumeSetKind" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="otherDynamicVolumeSetId" type="ares:DynamicVolumeSetId" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="dynamicVolumesInOtherSet" type="ares:DynamicVolumeId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetMessage" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:BusinessPSMessage">
+                <xs:sequence>
+                    <xs:element name="payload" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetMessageFilter" abstract="false">
+        <xs:sequence>
+            <xs:element name="dynamicVolumes" minOccurs="0" maxOccurs="1"><xs:complexType><xs:sequence><xs:element name="item" type="ares:DynamicVolumeIdWildcard" minOccurs="0" maxOccurs="20"/></xs:sequence></xs:complexType></xs:element>
+            <xs:element name="dynamicVolumesSets" minOccurs="0" maxOccurs="1"><xs:complexType><xs:sequence><xs:element name="item" type="ares:DynamicVolumeSetIdWildcard" minOccurs="0" maxOccurs="20"/></xs:sequence></xs:complexType></xs:element>
+            <xs:element name="creatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dynamicVolumeSetKind" type="ares:DynamicVolumeSetKind" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscription" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Subscription">
+                <xs:sequence>
+                    <xs:element name="messageFilter" type="ares:DynamicVolumeSetMessageFilter" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionCreationReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:DynamicVolumeSetSubscriptionCreationReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionCreationReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="subscription" type="ares:DynamicVolumeSetSubscription" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionCreationRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:SubscriptionCreationRequest">
+                <xs:sequence>
+                    <xs:element name="messageFilter" type="ares:DynamicVolumeSetMessageFilter" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionRetrievalReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:DynamicVolumeSetSubscriptionRetrievalReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionRetrievalReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="subscription" type="ares:DynamicVolumeSetSubscription" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionRetrievalRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:SubscriptionRetrievalRequest">
+                <xs:sequence>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionUpdateReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:DynamicVolumeSetSubscriptionUpdateReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionUpdateReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="subscription" type="ares:DynamicVolumeSetSubscription" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetSubscriptionUpdateRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:SubscriptionUpdateRequest">
+                <xs:sequence>
+                    <xs:element name="messageFilter" type="ares:DynamicVolumeSetMessageFilter" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetOverlapWarning" abstract="false">
+        <xs:sequence>
+            <xs:element name="dynamicVolumeOverlapWarnings" type="ares:DynamicVolumeOverlapWarning" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DynamicVolumeSetFlexibilityWarning" abstract="false">
+        <xs:sequence>
+            <xs:element name="minFlightLevelViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="maxFlightLevelViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="levelBandSizeViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="earliestStartTimeViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="latestEndTimeViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="activationDurationViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="distanceFromReferenceViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="bearingStartViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="bearingEndViolation" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean"/>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetCreationReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetUpdateReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetVerificationReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetListReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="aresVolumeSets" type="ares:DynamicVolumeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetCreationReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="atcVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetUpdateReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="atcVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetListReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="atcVolumeSets" type="ares:DynamicVolumeSet" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetCreationRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetCreationReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AresVolumeSetCreationReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetUpdateRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetUpdateReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AresVolumeSetUpdateReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetVerificationRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetVerificationReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AresVolumeSetVerificationReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetListRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="dataset" type="common:Dataset" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="timestamp" type="common:DateTimeSecond" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="lastUpdatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="creatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="aresVolumeSetStatuses" type="ares:DynamicVolumeSetStatus" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="dynamicVolumeSetId" type="ares:DynamicVolumeSetIdWildcard" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="containedWithinAirspace" type="airspace:AirspaceId" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AresVolumeSetListReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AresVolumeSetListReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetCreationRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="atcVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetCreationReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AtcVolumeSetCreationReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetUpdateRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="atcVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetUpdateReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AtcVolumeSetUpdateReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetListRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="dataset" type="common:Dataset" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="timestamp" type="common:DateTimeSecond" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="lastUpdatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="creatingUser" type="common:UserId" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="atcVolumeSetStatuses" type="ares:DynamicVolumeSetStatus" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="dynamicVolumeSetId" type="ares:DynamicVolumeSetIdWildcard" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="containedWithinAirspace" type="airspace:AirspaceId" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AtcVolumeSetListReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:AtcVolumeSetListReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="OptimiseDMALocationRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="dataset" type="common:Dataset" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="day" type="common:DateYearMonthDay" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="airspace" type="airspace:AirspaceId" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="dynamicVolumeSetId" type="ares:DynamicVolumeSetId" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="dynamicVolume" type="ares:DynamicVolumeId" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="OptimiseDMALocationReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:OptimiseDMALocationReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="OptimiseDMALocationReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="futureResultId" type="common:AsyncResultId" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OptimiseDMALocationResultsRetrievalRequest" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="futureResultId" type="common:AsyncResultId" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="OptimiseDMALocationResultsRetrievalReply" abstract="false">
+        <xs:complexContent>
+            <xs:extension base="common:AsyncServicesReply">
+                <xs:sequence>
+                    <xs:element name="data" type="ares:OptimiseDMALocationResultsRetrievalReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="OptimiseDMALocationResultsRetrievalReplyData" abstract="false">
+        <xs:sequence>
+            <xs:element name="aresVolumeSet" type="ares:DynamicVolumeSet" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

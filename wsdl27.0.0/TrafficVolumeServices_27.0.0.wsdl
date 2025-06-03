@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions
+             targetNamespace="eurocontrol/cfmu/b2b/TrafficVolumeServices"
+             name="TrafficVolumeServices"
+             xmlns:tns="eurocontrol/cfmu/b2b/TrafficVolumeServices"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema>
+      <xs:import namespace="eurocontrol/cfmu/b2b/TrafficVolumeServices" schemaLocation="TrafficVolumeServices_27.0.0.xsd"/>
+    </xs:schema>
+  </types>
+
+  <message name="TrafficVolumeSetsRequest">
+    <part element="tns:TrafficVolumeSetsRequest" name="parameters"/>
+  </message>
+  <message name="TrafficVolumeSetsReply">
+    <part element="tns:TrafficVolumeSetsReply" name="parameters"/>
+  </message>
+  <message name="TrafficVolumeDescriptionRequest">
+    <part element="tns:TrafficVolumeDescriptionRequest" name="parameters"/>
+  </message>
+  <message name="TrafficVolumeDescriptionReply">
+    <part element="tns:TrafficVolumeDescriptionReply" name="parameters"/>
+  </message>
+  <message name="TrafficVolumeListRequest">
+    <part element="tns:TrafficVolumeListRequest" name="parameters"/>
+  </message>
+  <message name="TrafficVolumeListReply">
+    <part element="tns:TrafficVolumeListReply" name="parameters"/>
+  </message>
+
+  <portType name="TrafficVolumeService">
+    <operation name="trafficVolumeDescription">
+      <input message="tns:TrafficVolumeDescriptionRequest"/>
+      <output message="tns:TrafficVolumeDescriptionReply"/>
+    </operation>
+    <operation name="listOfTrafficVolumeSets">
+      <input message="tns:TrafficVolumeSetsRequest"/>
+      <output message="tns:TrafficVolumeSetsReply"/>
+    </operation>
+    <operation name="listOfTrafficVolumes">
+      <input message="tns:TrafficVolumeListRequest"/>
+      <output message="tns:TrafficVolumeListReply"/>
+    </operation>
+  </portType>
+
+  <binding name="TrafficVolumeServiceSoapBinding" type="tns:TrafficVolumeService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="trafficVolumeDescription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="listOfTrafficVolumeSets">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="listOfTrafficVolumes">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="TrafficVolumeService">
+    <port binding="tns:TrafficVolumeServiceSoapBinding" name="TrafficVolumePort">
+      <soap:address location="http://localhost:8080/innove/TrafficVolume"/>
+    </port>
+  </service>
+
+</definitions>

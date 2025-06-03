@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings jxb:version="2.1"
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+
+  <jxb:globalBindings>
+    <xjc:serializable uid="1"/>
+  </jxb:globalBindings>
+
+  <jxb:bindings schemaLocation="../fixm_v4.3_ffice_v1.1/schemas/core/base/Base.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.base"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="../fixm_v4.3_ffice_v1.1/schemas/core/flight/Flight.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.flight"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="../fixm_v4.3_ffice_v1.1/schemas/extensions/ectl/nm/NmExtension_1.5.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.nm.v1_5"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="../fixm_v4.3_ffice_v1.1/schemas/applications/fficemessage/FficeMessage.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.ffice.v1_1_0.fficemessage"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="../fixm_v4.3_ffice_v1.1/schemas/bugfix/v20240301/FficeMessageBugFix.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.ffice.v1_1_0.fficemessage.oldfix"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <!-- TO BE REMOVED WHEN LAST RELEASE HAS BEEN DEPLOYED ON PREOPS - 20240529 -->
+  <jxb:bindings schemaLocation="../fixm_v4.3_ffice_v1.1/schemas/bugfix/v20240430/FficeMessageBugFix.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.ffice.v1_1_0.fficemessage"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+    <!--
+    <jxb:bindings schemaLocation="./../fixm_v4.3_ffice_v1.1/schemas/core/base/RangesAndChoices.xsd" node="//xs:schema/xs:complexType[@name='VerticalRangeChoiceType']/xs:choice/xs:element[@name='upperBound']">
+        <jxb:property name="upperBoundOnly"/>
+    </jxb:bindings>
+    -->
+</jxb:bindings>

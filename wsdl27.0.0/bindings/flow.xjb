@@ -1,0 +1,59 @@
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+	jaxb:extensionBindingPrefixes="xjc">
+
+
+	<jaxb:bindings schemaLocation="../FlowServices_27.0.0.xsd"  node="/xs:schema">
+		<jaxb:schemaBindings>
+				<jaxb:package name="eurocontrol.cfmu.b2b27.flowservices"/>
+		</jaxb:schemaBindings>
+	</jaxb:bindings>
+		
+    <jaxb:bindings 
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        version="2.1">
+        <jaxb:bindings schemaLocation="../FlowServices_27.0.0.xsd">
+  
+            <jaxb:bindings multiple="true" node=".//xsd:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType">
+                <jaxb:class name="InnerValue"/>
+            </jaxb:bindings>
+            <jaxb:bindings multiple="true" node=".//xsd:element[@name!='value']/xs:complexType/xs:sequence/xsd:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+                <jaxb:class name="InnerItem"/>
+            </jaxb:bindings>
+
+           <jaxb:bindings multiple="true" node=".//xsd:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+                <jaxb:class name="InnerInnerItem"/>
+            </jaxb:bindings>
+  
+            <jaxb:bindings node="//xs:element[@name='flowCounts']/xs:complexType/xs:sequence/xs:element[@name='item']">
+				<jaxb:property generateIsSetMethod ="true"/>
+			</jaxb:bindings>
+            <jaxb:bindings node="//xs:element[@name='subTotalsCountsByTrafficType']/xs:complexType/xs:sequence/xs:element[@name='item']">
+				<jaxb:property generateIsSetMethod ="true"/>
+			</jaxb:bindings>
+            <jaxb:bindings node="//xs:element[@name='subTotalsCountsByRegulationDetails']/xs:complexType/xs:sequence/xs:element[@name='item']">
+                <jaxb:property generateIsSetMethod ="true"/>
+            </jaxb:bindings>
+
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+
+	<!--
+	
+	<jaxb:bindings schemaLocation="../FlowServices_R27.0.0.xsd"  node="/xs:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="eurocontrol.cfmu.b2b27.flowservices"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<jaxb:bindings node="//xs:complexType[@name='TrafficCountsReplyData']//xs:sequence//xs:element[@name='counts']//xs:complexType//xs:sequence//xs:element[@name='item']">
+				<jaxb:class name="Item2"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+	-->
+
+</jaxb:bindings>
+
+

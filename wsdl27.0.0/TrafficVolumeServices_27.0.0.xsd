@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="eurocontrol/cfmu/b2b/TrafficVolumeServices"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ies="eurocontrol/cfmu/b2b/TrafficVolumeServices"
+           xmlns:airspace="eurocontrol/cfmu/b2b/AirspaceServices"
+           xmlns:common="eurocontrol/cfmu/b2b/CommonServices" version="1.0">
+    <xs:import namespace="eurocontrol/cfmu/b2b/AirspaceServices" schemaLocation="AirspaceServices_27.0.0.xsd"/>
+    <xs:import namespace="eurocontrol/cfmu/b2b/CommonServices" schemaLocation="CommonServices_27.0.0.xsd"/>
+
+    <!-- Would like to use flow:FlowId and airspace:TrafficVolumeId in outputs however a lot of the output values
+    do not conform to these patterns because NEST has no such restrictions - and NEST is our input data.
+    -->
+    <xs:simpleType name="GenericNESTId">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="TrafficVolumeDescriptionReply" type="ies:TrafficVolumeDescriptionReply"/>
+    <xs:complexType name="TrafficVolumeDescriptionReply">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ies:TrafficVolumeDescriptionReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="TrafficVolumeDescriptionReplyData" type="ies:TrafficVolumeDescriptionReplyData"/>
+    <xs:complexType name="TrafficVolumeDescriptionReplyData">
+        <xs:sequence>
+            <xs:element name="trafficVolumeId" type="airspace:TrafficVolumeId" minOccurs="1" maxOccurs="1"/>
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="referenceLocation-ReferenceLocationPublishedPoint" type="airspace:ReferenceLocationPublishedPoint"/>
+                <xs:element name="referenceLocation-ReferenceLocationDBEPoint" type="airspace:ReferenceLocationDBEPoint"/>
+                <xs:element name="referenceLocation-ReferenceLocationAirspace" type="airspace:ReferenceLocationAirspace"/>
+                <xs:element name="referenceLocation-ReferenceLocationAerodrome" type="airspace:ReferenceLocationAerodrome"/>
+                <xs:element name="referenceLocation-ReferenceLocationAerodromeSet" type="airspace:ReferenceLocationAerodromeSet"/>
+            </xs:choice>
+            <xs:element name="flowIds" type="ies:GenericNESTId" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="flightLevelRange" type="airspace:FlightLevelRange" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="TrafficVolumeDescriptionRequest" type="ies:TrafficVolumeDescriptionRequest"/>
+    <xs:complexType name="TrafficVolumeDescriptionRequest">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="trafficVolumeId" type="airspace:TrafficVolumeIdWildcard" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="TrafficVolumeSetsReply" type="ies:TrafficVolumeSetsReply"/>
+    <xs:complexType name="TrafficVolumeSetsReply">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ies:TrafficVolumeSetsReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="TrafficVolumeSetsReplyData" type="ies:TrafficVolumeSetsReplyData"/>
+    <xs:complexType name="TrafficVolumeSetsReplyData">
+        <xs:sequence>
+            <xs:element name="trafficVolumeSetIds" type="ies:GenericNESTId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="TrafficVolumeSetsRequest" type="ies:TrafficVolumeSetsRequest"/>
+    <xs:complexType name="TrafficVolumeSetsRequest">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:element name="TrafficVolumeListReply" type="ies:TrafficVolumeListReply"/>
+    <xs:complexType name="TrafficVolumeListReply">
+        <xs:complexContent>
+            <xs:extension base="common:Reply">
+                <xs:sequence>
+                    <xs:element name="data" type="ies:TrafficVolumeListReplyData" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="TrafficVolumeListReplyData" type="ies:TrafficVolumeListReplyData"/>
+    <xs:complexType name="TrafficVolumeListReplyData">
+        <xs:sequence>
+            <xs:element name="trafficVolumeIds" type="airspace:TrafficVolumeId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="TrafficVolumeListRequest" type="ies:TrafficVolumeListRequest"/>
+    <xs:complexType name="TrafficVolumeListRequest">
+        <xs:complexContent>
+            <xs:extension base="common:Request">
+                <xs:sequence>
+                    <xs:element name="trafficVolumeId" type="airspace:TrafficVolumeIdWildcard" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="trafficVolumeSetId" type="airspace:TrafficVolumeSetIdWildcard" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions
+        targetNamespace="eurocontrol/cfmu/b2b/ARESServices"
+        name="ARESServices"
+        xmlns:ares="eurocontrol/cfmu/b2b/ARESServices"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <types>
+        <xs:schema>
+            <xs:import namespace="eurocontrol/cfmu/b2b/ARESServices" schemaLocation="ARESServices_27.0.0.xsd"/>
+        </xs:schema>
+    </types>
+    <message name="AresVolumeSetCreationRequest">
+        <part name="parameters" element="ares:AresVolumeSetCreationRequest"/>
+    </message>
+    <message name="AresVolumeSetCreationReply">
+        <part name="parameters" element="ares:AresVolumeSetCreationReply"/>
+    </message>
+    <message name="AresVolumeSetUpdateRequest">
+        <part name="parameters" element="ares:AresVolumeSetUpdateRequest"/>
+    </message>
+    <message name="AresVolumeSetUpdateReply">
+        <part name="parameters" element="ares:AresVolumeSetUpdateReply"/>
+    </message>
+    <message name="AresVolumeSetVerificationRequest">
+        <part name="parameters" element="ares:AresVolumeSetVerificationRequest"/>
+    </message>
+    <message name="AresVolumeSetVerificationReply">
+        <part name="parameters" element="ares:AresVolumeSetVerificationReply"/>
+    </message>
+    <message name="AresVolumeSetListRequest">
+        <part name="parameters" element="ares:AresVolumeSetListRequest"/>
+    </message>
+    <message name="AresVolumeSetListReply">
+        <part name="parameters" element="ares:AresVolumeSetListReply"/>
+    </message>
+    <message name="AtcVolumeSetCreationRequest">
+        <part name="parameters" element="ares:AtcVolumeSetCreationRequest"/>
+    </message>
+    <message name="AtcVolumeSetCreationReply">
+        <part name="parameters" element="ares:AtcVolumeSetCreationReply"/>
+    </message>
+    <message name="AtcVolumeSetUpdateRequest">
+        <part name="parameters" element="ares:AtcVolumeSetUpdateRequest"/>
+    </message>
+    <message name="AtcVolumeSetUpdateReply">
+        <part name="parameters" element="ares:AtcVolumeSetUpdateReply"/>
+    </message>
+    <message name="AtcVolumeSetListRequest">
+        <part name="parameters" element="ares:AtcVolumeSetListRequest"/>
+    </message>
+    <message name="AtcVolumeSetListReply">
+        <part name="parameters" element="ares:AtcVolumeSetListReply"/>
+    </message>
+
+    <message name="DynamicVolumeSetSubscriptionCreationRequest">
+        <part name="parameters" element="ares:DynamicVolumeSetSubscriptionCreationRequest"/>
+    </message>
+    <message name="DynamicVolumeSetSubscriptionCreationReply">
+        <part name="parameters" element="ares:DynamicVolumeSetSubscriptionCreationReply"/>
+    </message>
+    <message name="DynamicVolumeSetSubscriptionUpdateRequest">
+        <part name="parameters" element="ares:DynamicVolumeSetSubscriptionUpdateRequest"/>
+    </message>
+    <message name="DynamicVolumeSetSubscriptionUpdateReply">
+        <part name="parameters" element="ares:DynamicVolumeSetSubscriptionUpdateReply"/>
+    </message>
+    <message name="DynamicVolumeSetSubscriptionRetrievalRequest">
+        <part name="parameters" element="ares:DynamicVolumeSetSubscriptionRetrievalRequest"/>
+    </message>
+    <message name="DynamicVolumeSetSubscriptionRetrievalReply">
+        <part name="parameters" element="ares:DynamicVolumeSetSubscriptionRetrievalReply"/>
+    </message>
+
+    <!--START: INNOVE RNEST experimental-->
+    <message name="OptimiseDMALocationRequest">
+        <part name="parameters" element="ares:OptimiseDMALocationRequest"/>
+    </message>
+    <message name="OptimiseDMALocationReply">
+        <part name="parameters" element="ares:OptimiseDMALocationReply"/>
+    </message>
+    <message name="OptimiseDMALocationResultsRetrievalRequest">
+        <part name="parameters" element="ares:OptimiseDMALocationResultsRetrievalRequest"/>
+    </message>
+    <message name="OptimiseDMALocationResultsRetrievalReply">
+        <part name="parameters" element="ares:OptimiseDMALocationResultsRetrievalReply"/>
+    </message>
+    <!--END: INNOVE RNEST experimental-->
+
+    <portType name="DynamicVolumeService">
+        <operation name="createAresVolumeSet">
+            <input message="ares:AresVolumeSetCreationRequest"/>
+            <output message="ares:AresVolumeSetCreationReply"/>
+        </operation>
+        <operation name="updateAresVolumeSet">
+            <input message="ares:AresVolumeSetUpdateRequest"/>
+            <output message="ares:AresVolumeSetUpdateReply"/>
+        </operation>
+        <operation name="verifyAresVolumeSet">
+            <input message="ares:AresVolumeSetVerificationRequest"/>
+            <output message="ares:AresVolumeSetVerificationReply"/>
+        </operation>
+        <operation name="queryAresVolumeSets">
+            <input message="ares:AresVolumeSetListRequest"/>
+            <output message="ares:AresVolumeSetListReply"/>
+        </operation>
+        <operation name="createAtcVolumeSet">
+            <input message="ares:AtcVolumeSetCreationRequest"/>
+            <output message="ares:AtcVolumeSetCreationReply"/>
+        </operation>
+        <operation name="updateAtcVolumeSet">
+            <input message="ares:AtcVolumeSetUpdateRequest"/>
+            <output message="ares:AtcVolumeSetUpdateReply"/>
+        </operation>
+        <operation name="queryAtcVolumeSets">
+            <input message="ares:AtcVolumeSetListRequest"/>
+            <output message="ares:AtcVolumeSetListReply"/>
+        </operation>
+        <operation name="createDynamicVolumeSetSubscription">
+            <input message="ares:DynamicVolumeSetSubscriptionCreationRequest"/>
+            <output message="ares:DynamicVolumeSetSubscriptionCreationReply"/>
+        </operation>
+        <operation name="updateDynamicVolumeSetSubscription">
+            <input message="ares:DynamicVolumeSetSubscriptionUpdateRequest"/>
+            <output message="ares:DynamicVolumeSetSubscriptionUpdateReply"/>
+        </operation>
+        <operation name="retrieveDynamicVolumeSetSubscription">
+            <input message="ares:DynamicVolumeSetSubscriptionRetrievalRequest"/>
+            <output message="ares:DynamicVolumeSetSubscriptionRetrievalReply"/>
+        </operation>
+        <!--START: INNOVE RNEST experimental-->
+        <operation name="optimiseDMALocation">
+            <input message="ares:OptimiseDMALocationRequest"/>
+            <output message="ares:OptimiseDMALocationReply"/>
+        </operation>
+        <operation name="retrieveOptimiseDMALocationResults">
+            <input message="ares:OptimiseDMALocationResultsRetrievalRequest"/>
+            <output message="ares:OptimiseDMALocationResultsRetrievalReply"/>
+        </operation>
+        <!--END: INNOVE RNEST experimental-->
+    </portType>
+    <binding name="DynamicVolumePortBinding" type="ares:DynamicVolumeService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="createAresVolumeSet">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="updateAresVolumeSet">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="verifyAresVolumeSet">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="queryAresVolumeSets">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="createAtcVolumeSet">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="updateAtcVolumeSet">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="queryAtcVolumeSets">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="createDynamicVolumeSetSubscription">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="updateDynamicVolumeSetSubscription">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="retrieveDynamicVolumeSetSubscription">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="optimiseDMALocation">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="retrieveOptimiseDMALocationResults">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="DynamicVolumeService">
+        <port name="DynamicVolumePort" binding="ares:DynamicVolumePortBinding">
+            <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/24.0.0"/>
+        </port>
+    </service>
+</definitions>

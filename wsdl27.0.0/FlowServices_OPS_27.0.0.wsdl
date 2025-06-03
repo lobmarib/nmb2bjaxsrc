@@ -1,0 +1,1898 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- B2B revision = 27.0.0.5.128 -->
+<definitions
+    targetNamespace="eurocontrol/cfmu/b2b/FlowServices"
+    name="FlowServices"
+    xmlns:flow="eurocontrol/cfmu/b2b/FlowServices"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <types>
+    <xs:schema>
+      <xs:import namespace="eurocontrol/cfmu/b2b/FlowServices" schemaLocation="FlowServices_27.0.0.xsd"/>
+    </xs:schema>
+  </types>
+
+  <message name="TrafficCountsByAircraftOperatorRequest">
+    <part name="parameters" element="flow:TrafficCountsByAircraftOperatorRequest"/>
+  </message>
+  <message name="TrafficCountsByAircraftOperatorReply">
+    <part name="parameters" element="flow:TrafficCountsByAircraftOperatorReply"/>
+  </message>
+  <message name="TrafficCountsByAerodromeRequest">
+    <part name="parameters" element="flow:TrafficCountsByAerodromeRequest"/>
+  </message>
+  <message name="TrafficCountsByAerodromeReply">
+    <part name="parameters" element="flow:TrafficCountsByAerodromeReply"/>
+  </message>
+  <message name="TrafficCountsByAerodromeSetRequest">
+    <part name="parameters" element="flow:TrafficCountsByAerodromeSetRequest"/>
+  </message>
+  <message name="TrafficCountsByAerodromeSetReply">
+    <part name="parameters" element="flow:TrafficCountsByAerodromeSetReply"/>
+  </message>
+  <message name="TrafficCountsByAirspaceRequest">
+    <part name="parameters" element="flow:TrafficCountsByAirspaceRequest"/>
+  </message>
+  <message name="TrafficCountsByAirspaceReply">
+    <part name="parameters" element="flow:TrafficCountsByAirspaceReply"/>
+  </message>
+  <message name="TrafficCountsByPointRequest">
+    <part name="parameters" element="flow:TrafficCountsByPointRequest"/>
+  </message>
+  <message name="TrafficCountsByPointReply">
+    <part name="parameters" element="flow:TrafficCountsByPointReply"/>
+  </message>
+  <message name="TrafficCountsByTrafficVolumeRequest">
+    <part name="parameters" element="flow:TrafficCountsByTrafficVolumeRequest"/>
+  </message>
+  <message name="TrafficCountsByTrafficVolumeReply">
+    <part name="parameters" element="flow:TrafficCountsByTrafficVolumeReply"/>
+  </message>
+  <message name="TrafficCountsByMeasureRequest">
+    <part name="parameters" element="flow:TrafficCountsByMeasureRequest"/>
+  </message>
+  <message name="TrafficCountsByMeasureReply">
+    <part name="parameters" element="flow:TrafficCountsByMeasureReply"/>
+  </message>
+
+  <portType name="TrafficCountsService">
+    <operation name="queryTrafficCountsByAircraftOperator">
+      <input message="flow:TrafficCountsByAircraftOperatorRequest"/>
+      <output message="flow:TrafficCountsByAircraftOperatorReply"/>
+    </operation>
+    <operation name="queryTrafficCountsByAerodrome">
+      <input message="flow:TrafficCountsByAerodromeRequest"/>
+      <output message="flow:TrafficCountsByAerodromeReply"/>
+    </operation>
+    <operation name="queryTrafficCountsByAerodromeSet">
+      <input message="flow:TrafficCountsByAerodromeSetRequest"/>
+      <output message="flow:TrafficCountsByAerodromeSetReply"/>
+    </operation>
+    <operation name="queryTrafficCountsByAirspace">
+      <input message="flow:TrafficCountsByAirspaceRequest"/>
+      <output message="flow:TrafficCountsByAirspaceReply"/>
+    </operation>
+    <operation name="queryTrafficCountsByPoint">
+      <input message="flow:TrafficCountsByPointRequest"/>
+      <output message="flow:TrafficCountsByPointReply"/>
+    </operation>
+    <operation name="queryTrafficCountsByTrafficVolume">
+      <input message="flow:TrafficCountsByTrafficVolumeRequest"/>
+      <output message="flow:TrafficCountsByTrafficVolumeReply"/>
+    </operation>
+    <operation name="queryTrafficCountsByMeasure">
+      <input message="flow:TrafficCountsByMeasureRequest"/>
+      <output message="flow:TrafficCountsByMeasureReply"/>
+    </operation>
+  </portType>
+
+  <binding name="TrafficCountsPortBinding" type="flow:TrafficCountsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="queryTrafficCountsByAircraftOperator">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryTrafficCountsByAerodrome">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryTrafficCountsByAerodromeSet">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryTrafficCountsByAirspace">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryTrafficCountsByPoint">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryTrafficCountsByTrafficVolume">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryTrafficCountsByMeasure">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="TrafficCountsService">
+    <port name="TrafficCountsPort" binding="flow:TrafficCountsPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="RegulationListRequest">
+    <part name="parameters" element="flow:RegulationListRequest"/>
+  </message>
+  <message name="RegulationListReply">
+    <part name="parameters" element="flow:RegulationListReply"/>
+  </message>
+  <message name="RegulationCreationRequest">
+    <part name="parameters" element="flow:RegulationCreationRequest"/>
+  </message>
+  <message name="RegulationCreationReply">
+    <part name="parameters" element="flow:RegulationCreationReply"/>
+  </message>
+  <message name="RegulationUpdateRequest">
+    <part name="parameters" element="flow:RegulationUpdateRequest"/>
+  </message>
+  <message name="RegulationUpdateReply">
+    <part name="parameters" element="flow:RegulationUpdateReply"/>
+  </message>
+  <message name="RegulationCancelRequest">
+    <part name="parameters" element="flow:RegulationCancelRequest"/>
+  </message>
+  <message name="RegulationCancelReply">
+    <part name="parameters" element="flow:RegulationCancelReply"/>
+  </message>
+  <message name="RegulationProposalListRequest">
+    <part name="parameters" element="flow:RegulationProposalListRequest"/>
+  </message>
+  <message name="RegulationProposalListReply">
+    <part name="parameters" element="flow:RegulationProposalListReply"/>
+  </message>
+  <message name="RegulationProposalFilingRequest">
+    <part name="parameters" element="flow:RegulationProposalFilingRequest"/>
+  </message>
+  <message name="RegulationProposalFilingReply">
+    <part name="parameters" element="flow:RegulationProposalFilingReply"/>
+  </message>
+  <message name="RegulationProposalUpdateRequest">
+    <part name="parameters" element="flow:RegulationProposalUpdateRequest"/>
+  </message>
+  <message name="RegulationProposalUpdateReply">
+    <part name="parameters" element="flow:RegulationProposalUpdateReply"/>
+  </message>
+  <message name="RegulationProposalRevocationRequest">
+    <part name="parameters" element="flow:RegulationProposalRevocationRequest"/>
+  </message>
+  <message name="RegulationProposalRevocationReply">
+    <part name="parameters" element="flow:RegulationProposalRevocationReply"/>
+  </message>
+  <message name="ReroutingListRequest">
+    <part name="parameters" element="flow:ReroutingListRequest"/>
+  </message>
+  <message name="ReroutingListReply">
+    <part name="parameters" element="flow:ReroutingListReply"/>
+  </message>
+  <message name="ReroutingCreationRequest">
+    <part name="parameters" element="flow:ReroutingCreationRequest"/>
+  </message>
+  <message name="ReroutingCreationReply">
+    <part name="parameters" element="flow:ReroutingCreationReply"/>
+  </message>
+  <message name="ReroutingUpdateRequest">
+    <part name="parameters" element="flow:ReroutingUpdateRequest"/>
+  </message>
+  <message name="ReroutingUpdateReply">
+    <part name="parameters" element="flow:ReroutingUpdateReply"/>
+  </message>
+  <message name="ReroutingCancelRequest">
+    <part name="parameters" element="flow:ReroutingCancelRequest"/>
+  </message>
+  <message name="ReroutingCancelReply">
+    <part name="parameters" element="flow:ReroutingCancelReply"/>
+  </message>
+  <!-- START INNOVE 25 compatibility -->
+  <message name="MCDMOnlyListRequest">
+    <part name="parameters" element="flow:MCDMOnlyListRequest"/>
+  </message>
+  <message name="MCDMOnlyListReply">
+    <part name="parameters" element="flow:MCDMOnlyListReply"/>
+  </message>
+  <message name="MCDMOnlyCreationRequest">
+    <part name="parameters" element="flow:MCDMOnlyCreationRequest"/>
+  </message>
+  <message name="MCDMOnlyCreationReply">
+    <part name="parameters" element="flow:MCDMOnlyCreationReply"/>
+  </message>
+  <message name="MCDMOnlyUpdateRequest">
+    <part name="parameters" element="flow:MCDMOnlyUpdateRequest"/>
+  </message>
+  <message name="MCDMOnlyUpdateReply">
+    <part name="parameters" element="flow:MCDMOnlyUpdateReply"/>
+  </message>
+  <message name="MCDMOnlyCancelRequest">
+    <part name="parameters" element="flow:MCDMOnlyCancelRequest"/>
+  </message>
+  <message name="MCDMOnlyCancelReply">
+    <part name="parameters" element="flow:MCDMOnlyCancelReply"/>
+  </message>
+  <!-- END INNOVE 25 compatibility -->
+  <message name="MeasureOpLogRetrievalRequest">
+    <part name="parameters" element="flow:MeasureOpLogRetrievalRequest"/>
+  </message>
+  <message name="MeasureOpLogRetrievalReply">
+    <part name="parameters" element="flow:MeasureOpLogRetrievalReply"/>
+  </message>
+  <message name="UpdateFlightsInMeasureRequest">
+    <part name="parameters" element="flow:UpdateFlightsInMeasureRequest"/>
+  </message>
+  <message name="UpdateFlightsInMeasureReply">
+    <part name="parameters" element="flow:UpdateFlightsInMeasureReply"/>
+  </message>
+  <message name="SimulationMeasureRevertRequest">
+    <part name="parameters" element="flow:SimulationMeasureRevertRequest"/>
+  </message>
+  <message name="SimulationMeasureRevertReply">
+    <part name="parameters" element="flow:SimulationMeasureRevertReply"/>
+  </message>
+  <message name="ATFCMSituationRequest">
+    <part name="parameters" element="flow:ATFCMSituationRequest"/>
+  </message>
+  <message name="ATFCMSituationReply">
+    <part name="parameters" element="flow:ATFCMSituationReply"/>
+  </message>
+  <message name="NetworkImpactAssessmentRetrievalRequest">
+    <part name="parameters" element="flow:NetworkImpactAssessmentRetrievalRequest"/>
+  </message>
+  <message name="NetworkImpactAssessmentRetrievalReply">
+    <part name="parameters" element="flow:NetworkImpactAssessmentRetrievalReply"/>
+  </message>
+
+  <!--START: INNOVE RNEST experimental-->
+  <message name="FRAReroutingCreationRequest">
+    <part name="parameters" element="flow:FRAReroutingCreationRequest"/>
+  </message>
+  <message name="FRAReroutingCreationReply">
+    <part name="parameters" element="flow:FRAReroutingCreationReply"/>
+  </message>
+  <message name="FRAReroutingResultsRetrievalRequest">
+    <part name="parameters" element="flow:FRAReroutingResultsRetrievalRequest"/>
+  </message>
+  <message name="FRAReroutingResultsRetrievalReply">
+    <part name="parameters" element="flow:FRAReroutingResultsRetrievalReply"/>
+  </message>
+  <!--END: INNOVE RNEST experimental-->
+
+  <message name="RegulationSubscriptionCreationRequest">
+    <part name="parameters" element="flow:RegulationSubscriptionCreationRequest"/>
+  </message>
+  <message name="RegulationSubscriptionCreationReply">
+    <part name="parameters" element="flow:RegulationSubscriptionCreationReply"/>
+  </message>
+  <message name="RegulationSubscriptionUpdateRequest">
+    <part name="parameters" element="flow:RegulationSubscriptionUpdateRequest"/>
+  </message>
+  <message name="RegulationSubscriptionUpdateReply">
+    <part name="parameters" element="flow:RegulationSubscriptionUpdateReply"/>
+  </message>
+  <message name="RegulationSubscriptionRetrievalRequest">
+    <part name="parameters" element="flow:RegulationSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="RegulationSubscriptionRetrievalReply">
+    <part name="parameters" element="flow:RegulationSubscriptionRetrievalReply"/>
+  </message>
+  <message name="ReroutingSubscriptionCreationRequest">
+    <part name="parameters" element="flow:ReroutingSubscriptionCreationRequest"/>
+  </message>
+  <message name="ReroutingSubscriptionCreationReply">
+    <part name="parameters" element="flow:ReroutingSubscriptionCreationReply"/>
+  </message>
+  <message name="ReroutingSubscriptionUpdateRequest">
+    <part name="parameters" element="flow:ReroutingSubscriptionUpdateRequest"/>
+  </message>
+  <message name="ReroutingSubscriptionUpdateReply">
+    <part name="parameters" element="flow:ReroutingSubscriptionUpdateReply"/>
+  </message>
+  <message name="ReroutingSubscriptionRetrievalRequest">
+    <part name="parameters" element="flow:ReroutingSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="ReroutingSubscriptionRetrievalReply">
+    <part name="parameters" element="flow:ReroutingSubscriptionRetrievalReply"/>
+  </message>
+
+  <portType name="MeasuresService">
+    <operation name="queryRegulations">
+      <input message="flow:RegulationListRequest"/>
+      <output message="flow:RegulationListReply"/>
+    </operation>
+    <operation name="createRegulation">
+      <input message="flow:RegulationCreationRequest"/>
+      <output message="flow:RegulationCreationReply"/>
+    </operation>
+    <operation name="updateRegulation">
+      <input message="flow:RegulationUpdateRequest"/>
+      <output message="flow:RegulationUpdateReply"/>
+    </operation>
+    <operation name="cancelRegulation">
+      <input message="flow:RegulationCancelRequest"/>
+      <output message="flow:RegulationCancelReply"/>
+    </operation>
+    <operation name="queryRegulationProposals">
+      <input message="flow:RegulationProposalListRequest"/>
+      <output message="flow:RegulationProposalListReply"/>
+    </operation>
+    <operation name="fileRegulationProposal">
+      <input message="flow:RegulationProposalFilingRequest"/>
+      <output message="flow:RegulationProposalFilingReply"/>
+    </operation>
+    <operation name="updateRegulationProposal">
+      <input message="flow:RegulationProposalUpdateRequest"/>
+      <output message="flow:RegulationProposalUpdateReply"/>
+    </operation>
+    <operation name="revokeRegulationProposal">
+      <input message="flow:RegulationProposalRevocationRequest"/>
+      <output message="flow:RegulationProposalRevocationReply"/>
+    </operation>
+    <operation name="queryReroutings">
+      <input message="flow:ReroutingListRequest"/>
+      <output message="flow:ReroutingListReply"/>
+    </operation>
+    <operation name="createRerouting">
+      <input message="flow:ReroutingCreationRequest"/>
+      <output message="flow:ReroutingCreationReply"/>
+    </operation>
+    <operation name="updateRerouting">
+      <input message="flow:ReroutingUpdateRequest"/>
+      <output message="flow:ReroutingUpdateReply"/>
+    </operation>
+    <operation name="cancelRerouting">
+      <input message="flow:ReroutingCancelRequest"/>
+      <output message="flow:ReroutingCancelReply"/>
+    </operation>
+    <!-- START: INNOVE 25 Compatibility -->
+    <operation name="queryMCDMOnly">
+      <input message="flow:MCDMOnlyListRequest"/>
+      <output message="flow:MCDMOnlyListReply"/>
+    </operation>
+    <operation name="createMCDMOnly">
+      <input message="flow:MCDMOnlyCreationRequest"/>
+      <output message="flow:MCDMOnlyCreationReply"/>
+    </operation>
+    <operation name="updateMCDMOnly">
+      <input message="flow:MCDMOnlyUpdateRequest"/>
+      <output message="flow:MCDMOnlyUpdateReply"/>
+    </operation>
+    <operation name="cancelMCDMOnly">
+      <input message="flow:MCDMOnlyCancelRequest"/>
+      <output message="flow:MCDMOnlyCancelReply"/>
+    </operation>
+    <!-- END: INNOVE 25 Compatibility -->
+    <operation name="retrieveMeasureOpLog">
+      <input message="flow:MeasureOpLogRetrievalRequest"/>
+      <output message="flow:MeasureOpLogRetrievalReply"/>
+    </operation>
+    <operation name="updateFlightsInMeasure">
+      <input message="flow:UpdateFlightsInMeasureRequest"/>
+      <output message="flow:UpdateFlightsInMeasureReply"/>
+    </operation>
+    <operation name="revertSimulationMeasure">
+      <input message="flow:SimulationMeasureRevertRequest"/>
+      <output message="flow:SimulationMeasureRevertReply"/>
+    </operation>
+    <operation name="retrieveATFCMSituation">
+      <input message="flow:ATFCMSituationRequest"/>
+      <output message="flow:ATFCMSituationReply"/>
+    </operation>
+    <operation name="retrieveNetworkImpactAssessment">
+      <input message="flow:NetworkImpactAssessmentRetrievalRequest"/>
+      <output message="flow:NetworkImpactAssessmentRetrievalReply"/>
+    </operation>
+    <operation name="createRegulationSubscription">
+      <input message="flow:RegulationSubscriptionCreationRequest"/>
+      <output message="flow:RegulationSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateRegulationSubscription">
+      <input message="flow:RegulationSubscriptionUpdateRequest"/>
+      <output message="flow:RegulationSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveRegulationSubscription">
+      <input message="flow:RegulationSubscriptionRetrievalRequest"/>
+      <output message="flow:RegulationSubscriptionRetrievalReply"/>
+    </operation>
+    <operation name="createReroutingSubscription">
+      <input message="flow:ReroutingSubscriptionCreationRequest"/>
+      <output message="flow:ReroutingSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateReroutingSubscription">
+      <input message="flow:ReroutingSubscriptionUpdateRequest"/>
+      <output message="flow:ReroutingSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveReroutingSubscription">
+      <input message="flow:ReroutingSubscriptionRetrievalRequest"/>
+      <output message="flow:ReroutingSubscriptionRetrievalReply"/>
+    </operation>
+
+    <!--START INNOVE RNEST experimental-->
+    <operation name="createFRARerouting">
+      <input message="flow:FRAReroutingCreationRequest"/>
+      <output message="flow:FRAReroutingCreationReply"/>
+    </operation>
+    <operation name="retrieveFRAReroutingResults">
+      <input message="flow:FRAReroutingResultsRetrievalRequest"/>
+      <output message="flow:FRAReroutingResultsRetrievalReply"/>
+    </operation>
+    <!--END INNOVE RNEST experimental-->
+  </portType>
+
+  <binding name="MeasuresPortBinding" type="flow:MeasuresService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="queryRegulations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createRegulation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRegulation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="cancelRegulation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryRegulationProposals">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="fileRegulationProposal">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRegulationProposal">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="revokeRegulationProposal">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryReroutings">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createRerouting">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRerouting">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="cancelRerouting">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!-- START: INNOVE 25 Compatibility -->
+    <operation name="queryMCDMOnly">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createMCDMOnly">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateMCDMOnly">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="cancelMCDMOnly">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!-- END: INNOVE 25 Compatibility -->
+    <operation name="retrieveMeasureOpLog">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateFlightsInMeasure">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="revertSimulationMeasure">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveATFCMSituation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveNetworkImpactAssessment">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createRegulationSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRegulationSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveRegulationSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createReroutingSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateReroutingSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveReroutingSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!--START INNOVE RNEST experimental-->
+    <operation name="createFRARerouting">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveFRAReroutingResults">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!--END INNOVE RNEST experimental-->
+  </binding>
+
+  <service name="MeasuresService">
+    <port name="MeasuresPort" binding="flow:MeasuresPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="MCDMTopicListRequest">
+    <part name="parameters" element="flow:MCDMTopicListRequest"/>
+  </message>
+  <message name="MCDMTopicListReply">
+    <part name="parameters" element="flow:MCDMTopicListReply"/>
+  </message>
+  <message name="MCDMTopicUpdateRequest">
+    <part name="parameters" element="flow:MCDMTopicUpdateRequest"/>
+  </message>
+  <message name="MCDMTopicUpdateReply">
+    <part name="parameters" element="flow:MCDMTopicUpdateReply"/>
+  </message>
+  <message name="MCDMStateUpdateRequest">
+    <part name="parameters" element="flow:MCDMStateUpdateRequest"/>
+  </message>
+  <message name="MCDMStateUpdateReply">
+    <part name="parameters" element="flow:MCDMStateUpdateReply"/>
+  </message>
+  <message name="EhelpDeskTicketCreationRequest">
+    <part name="parameters" element="flow:EhelpDeskTicketCreationRequest"/>
+  </message>
+  <message name="EhelpDeskTicketCreationReply">
+    <part name="parameters" element="flow:EhelpDeskTicketCreationReply"/>
+  </message>
+  <message name="EhelpDeskTicketUpdateRequest">
+    <part name="parameters" element="flow:EhelpDeskTicketUpdateRequest"/>
+  </message>
+  <message name="EhelpDeskTicketUpdateReply">
+    <part name="parameters" element="flow:EhelpDeskTicketUpdateReply"/>
+  </message>
+  <message name="EhelpDeskTicketRevocationRequest">
+    <part name="parameters" element="flow:EhelpDeskTicketRevocationRequest"/>
+  </message>
+  <message name="EhelpDeskTicketRevocationReply">
+    <part name="parameters" element="flow:EhelpDeskTicketRevocationReply"/>
+  </message>
+  <message name="MCDMSubscriptionCreationRequest">
+    <part name="parameters" element="flow:MCDMSubscriptionCreationRequest"/>
+  </message>
+  <message name="MCDMSubscriptionCreationReply">
+    <part name="parameters" element="flow:MCDMSubscriptionCreationReply"/>
+  </message>
+  <message name="MCDMSubscriptionUpdateRequest">
+    <part name="parameters" element="flow:MCDMSubscriptionUpdateRequest"/>
+  </message>
+  <message name="MCDMSubscriptionUpdateReply">
+    <part name="parameters" element="flow:MCDMSubscriptionUpdateReply"/>
+  </message>
+  <message name="MCDMSubscriptionRetrievalRequest">
+    <part name="parameters" element="flow:MCDMSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="MCDMSubscriptionRetrievalReply">
+    <part name="parameters" element="flow:MCDMSubscriptionRetrievalReply"/>
+  </message>
+
+  <portType name="McdmService">
+    <operation name="queryMCDM">
+      <input message="flow:MCDMTopicListRequest"/>
+      <output message="flow:MCDMTopicListReply"/>
+    </operation>
+    <operation name="updateMCDM">
+      <input message="flow:MCDMTopicUpdateRequest"/>
+      <output message="flow:MCDMTopicUpdateReply"/>
+    </operation>
+    <operation name="updateMCDMState">
+      <input message="flow:MCDMStateUpdateRequest"/>
+      <output message="flow:MCDMStateUpdateReply"/>
+    </operation>
+    <operation name="createEhelpDeskTicket">
+      <input message="flow:EhelpDeskTicketCreationRequest"/>
+      <output message="flow:EhelpDeskTicketCreationReply"/>
+    </operation>
+    <operation name="updateEhelpDeskTicket">
+      <input message="flow:EhelpDeskTicketUpdateRequest"/>
+      <output message="flow:EhelpDeskTicketUpdateReply"/>
+    </operation>
+    <operation name="revokeEhelpDeskTicket">
+      <input message="flow:EhelpDeskTicketRevocationRequest"/>
+      <output message="flow:EhelpDeskTicketRevocationReply"/>
+    </operation>
+    <operation name="createMCDMSubscription">
+      <input message="flow:MCDMSubscriptionCreationRequest"/>
+      <output message="flow:MCDMSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateMCDMSubscription">
+      <input message="flow:MCDMSubscriptionUpdateRequest"/>
+      <output message="flow:MCDMSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveMCDMSubscription">
+      <input message="flow:MCDMSubscriptionRetrievalRequest"/>
+      <output message="flow:MCDMSubscriptionRetrievalReply"/>
+    </operation>
+  </portType>
+
+  <binding name="McdmPortBinding" type="flow:McdmService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="queryMCDM">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateMCDM">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateMCDMState">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createEhelpDeskTicket">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateEhelpDeskTicket">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="revokeEhelpDeskTicket">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createMCDMSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateMCDMSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveMCDMSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="McdmService">
+    <port name="McdmPort" binding="flow:McdmPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="SectorConfigurationPlanRetrievalRequest">
+    <part name="parameters" element="flow:SectorConfigurationPlanRetrievalRequest"/>
+  </message>
+  <message name="SectorConfigurationPlanRetrievalReply">
+    <part name="parameters" element="flow:SectorConfigurationPlanRetrievalReply"/>
+  </message>
+  <message name="SectorConfigurationPlanUpdateRequest">
+    <part name="parameters" element="flow:SectorConfigurationPlanUpdateRequest"/>
+  </message>
+  <message name="SectorConfigurationPlanUpdateReply">
+    <part name="parameters" element="flow:SectorConfigurationPlanUpdateReply"/>
+  </message>
+  <message name="CapacityPlanRetrievalRequest">
+    <part name="parameters" element="flow:CapacityPlanRetrievalRequest"/>
+  </message>
+  <message name="CapacityPlanRetrievalReply">
+    <part name="parameters" element="flow:CapacityPlanRetrievalReply"/>
+  </message>
+  <message name="CapacityPlanUpdateRequest">
+    <part name="parameters" element="flow:CapacityPlanUpdateRequest"/>
+  </message>
+  <message name="CapacityPlanUpdateReply">
+    <part name="parameters" element="flow:CapacityPlanUpdateReply"/>
+  </message>
+  <message name="TrafficVolumeActivationPlanRetrievalRequest">
+    <part name="parameters" element="flow:TrafficVolumeActivationPlanRetrievalRequest"/>
+  </message>
+  <message name="TrafficVolumeActivationPlanRetrievalReply">
+    <part name="parameters" element="flow:TrafficVolumeActivationPlanRetrievalReply"/>
+  </message>
+  <message name="TrafficVolumeActivationPlanUpdateRequest">
+    <part name="parameters" element="flow:TrafficVolumeActivationPlanUpdateRequest"/>
+  </message>
+  <message name="TrafficVolumeActivationPlanUpdateReply">
+    <part name="parameters" element="flow:TrafficVolumeActivationPlanUpdateReply"/>
+  </message>
+  <message name="OTMVPlanRetrievalRequest">
+    <part name="parameters" element="flow:OTMVPlanRetrievalRequest"/>
+  </message>
+  <message name="OTMVPlanRetrievalReply">
+    <part name="parameters" element="flow:OTMVPlanRetrievalReply"/>
+  </message>
+  <message name="OTMVPlanUpdateRequest">
+    <part name="parameters" element="flow:OTMVPlanUpdateRequest"/>
+  </message>
+  <message name="OTMVPlanUpdateReply">
+    <part name="parameters" element="flow:OTMVPlanUpdateReply"/>
+  </message>
+  <message name="RunwayConfigurationPlanRetrievalRequest">
+    <part name="parameters" element="flow:RunwayConfigurationPlanRetrievalRequest"/>
+  </message>
+  <message name="RunwayConfigurationPlanRetrievalReply">
+    <part name="parameters" element="flow:RunwayConfigurationPlanRetrievalReply"/>
+  </message>
+  <message name="RunwayConfigurationPlanUpdateRequest">
+    <part name="parameters" element="flow:RunwayConfigurationPlanUpdateRequest"/>
+  </message>
+  <message name="RunwayConfigurationPlanUpdateReply">
+    <part name="parameters" element="flow:RunwayConfigurationPlanUpdateReply"/>
+  </message>
+  <message name="HotspotListRequest">
+    <part name="parameters" element="flow:HotspotListRequest"/>
+  </message>
+  <message name="HotspotListReply">
+    <part name="parameters" element="flow:HotspotListReply"/>
+  </message>
+  <message name="HotspotPlanUpdateRequest">
+    <part name="parameters" element="flow:HotspotPlanUpdateRequest"/>
+  </message>
+  <message name="HotspotPlanUpdateReply">
+    <part name="parameters" element="flow:HotspotPlanUpdateReply"/>
+  </message>
+  <message name="RestrictionActivationPlanRetrievalRequest">
+    <part name="parameters" element="flow:RestrictionActivationPlanRetrievalRequest"/>
+  </message>
+  <message name="RestrictionActivationPlanRetrievalReply">
+    <part name="parameters" element="flow:RestrictionActivationPlanRetrievalReply"/>
+  </message>
+  <message name="RestrictionActivationPlanUpdateRequest">
+    <part name="parameters" element="flow:RestrictionActivationPlanUpdateRequest"/>
+  </message>
+  <message name="RestrictionActivationPlanUpdateReply">
+    <part name="parameters" element="flow:RestrictionActivationPlanUpdateReply"/>
+  </message>
+  <!-- START : TO BE INNOVE Added -->
+  <message name="NetspotListRequest">
+    <part name="parameters" element="flow:NetspotListRequest"/>
+  </message>
+  <message name="NetspotListReply">
+    <part name="parameters" element="flow:NetspotListReply"/>
+  </message>
+  <message name="NetspotUpdateRequest">
+    <part name="parameters" element="flow:NetspotUpdateRequest"/>
+  </message>
+  <message name="NetspotUpdateReply">
+    <part name="parameters" element="flow:NetspotUpdateReply"/>
+  </message>
+  <!--<message name="DCBProblemListRequest">
+    <part name="parameters" element="flow:DCBProblemListRequest"/>
+  </message>
+  <message name="DCBProblemListReply">
+    <part name="parameters" element="flow:DCBProblemListReply"/>
+  </message>
+  <message name="DCBProblemUpdateRequest">
+    <part name="parameters" element="flow:DCBProblemUpdateRequest"/>
+  </message>
+  <message name="DCBProblemUpdateReply">
+    <part name="parameters" element="flow:DCBProblemUpdateReply"/>
+  </message>-->
+  <!-- END : TO BE INNOVE Added -->
+  <!--START: INNOVE KPI experimental-->
+  <message name="KPITargetsPlanRetrievalRequest">
+    <part name="parameters" element="flow:KPITargetsPlanRetrievalRequest"/>
+  </message>
+  <message name="KPITargetsPlanRetrievalReply">
+    <part name="parameters" element="flow:KPITargetsPlanRetrievalReply"/>
+  </message>
+  <message name="KPITargetsPlanUpdateRequest">
+    <part name="parameters" element="flow:KPITargetsPlanUpdateRequest"/>
+  </message>
+  <message name="KPITargetsPlanUpdateReply">
+    <part name="parameters" element="flow:KPITargetsPlanUpdateReply"/>
+  </message>
+
+  <message name="KPITargetsPlanSubscriptionCreationRequest">
+    <part name="parameters" element="flow:KPITargetsPlanSubscriptionCreationRequest"/>
+  </message>
+  <message name="KPITargetsPlanSubscriptionCreationReply">
+    <part name="parameters" element="flow:KPITargetsPlanSubscriptionCreationReply"/>
+  </message>
+  <message name="KPITargetsPlanSubscriptionUpdateRequest">
+    <part name="parameters" element="flow:KPITargetsPlanSubscriptionUpdateRequest"/>
+  </message>
+  <message name="KPITargetsPlanSubscriptionUpdateReply">
+    <part name="parameters" element="flow:KPITargetsPlanSubscriptionUpdateReply"/>
+  </message>
+  <message name="KPITargetsPlanSubscriptionRetrievalRequest">
+    <part name="parameters" element="flow:KPITargetsPlanSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="KPITargetsPlanSubscriptionRetrievalReply">
+    <part name="parameters" element="flow:KPITargetsPlanSubscriptionRetrievalReply"/>
+  </message>
+
+
+  <!--END: INNOVE KPI experimental-->
+  <!--START: INNOVE Dynamic Sector Configuration-->
+  <message name="SectorConfigurationCreationRequest">
+    <part name="parameters" element="flow:SectorConfigurationCreationRequest"/>
+  </message>
+  <message name="SectorConfigurationCreationReply">
+    <part name="parameters" element="flow:SectorConfigurationCreationReply"/>
+  </message>
+  <message name="SectorConfigurationUpdateRequest">
+    <part name="parameters" element="flow:SectorConfigurationUpdateRequest"/>
+  </message>
+  <message name="SectorConfigurationUpdateReply">
+    <part name="parameters" element="flow:SectorConfigurationUpdateReply"/>
+  </message>
+  <message name="SectorConfigurationRetrievalRequest">
+    <part name="parameters" element="flow:SectorConfigurationRetrievalRequest"/>
+  </message>
+  <message name="SectorConfigurationRetrievalReply">
+    <part name="parameters" element="flow:SectorConfigurationRetrievalReply"/>
+  </message>
+  <message name="SectorConfigurationDeletionRequest">
+    <part name="parameters" element="flow:SectorConfigurationDeletionRequest"/>
+  </message>
+  <message name="SectorConfigurationDeletionReply">
+    <part name="parameters" element="flow:SectorConfigurationDeletionReply"/>
+  </message>
+
+  <message name="SectorConfigurationPlanSubscriptionCreationRequest">
+    <part name="parameters" element="flow:SectorConfigurationPlanSubscriptionCreationRequest"/>
+  </message>
+  <message name="SectorConfigurationPlanSubscriptionCreationReply">
+    <part name="parameters" element="flow:SectorConfigurationPlanSubscriptionCreationReply"/>
+  </message>
+  <message name="SectorConfigurationPlanSubscriptionUpdateRequest">
+    <part name="parameters" element="flow:SectorConfigurationPlanSubscriptionUpdateRequest"/>
+  </message>
+  <message name="SectorConfigurationPlanSubscriptionUpdateReply">
+    <part name="parameters" element="flow:SectorConfigurationPlanSubscriptionUpdateReply"/>
+  </message>
+  <message name="SectorConfigurationPlanSubscriptionRetrievalRequest">
+    <part name="parameters" element="flow:SectorConfigurationPlanSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="SectorConfigurationPlanSubscriptionRetrievalReply">
+    <part name="parameters" element="flow:SectorConfigurationPlanSubscriptionRetrievalReply"/>
+  </message>
+  <!--END: INNOVE Dynamic Sector Configuration-->
+  <!--START: INNOVE RNEST experimental-->
+  <message name="BackboneRetrievalRequest">
+    <part name="parameters" element="flow:BackboneRetrievalRequest"/>
+  </message>
+  <message name="BackboneRetrievalReply">
+    <part name="parameters" element="flow:BackboneRetrievalReply"/>
+  </message>
+  <message name="BackboneUpdateRequest">
+    <part name="parameters" element="flow:BackboneUpdateRequest"/>
+  </message>
+  <message name="BackboneUpdateReply">
+    <part name="parameters" element="flow:BackboneUpdateReply"/>
+  </message>
+  <message name="OptimiseSectorConfigurationPlanRequest">
+    <part name="parameters" element="flow:OptimiseSectorConfigurationPlanRequest"/>
+  </message>
+  <message name="OptimiseSectorConfigurationPlanReply">
+    <part name="parameters" element="flow:OptimiseSectorConfigurationPlanReply"/>
+  </message>
+  <message name="OptimiseSectorConfigurationPlanResultsRetrievalRequest">
+    <part name="parameters" element="flow:OptimiseSectorConfigurationPlanResultsRetrievalRequest"/>
+  </message>
+  <message name="OptimiseSectorConfigurationPlanResultsRetrievalReply">
+    <part name="parameters" element="flow:OptimiseSectorConfigurationPlanResultsRetrievalReply"/>
+  </message>
+
+  <message name="BackboneSubscriptionCreationRequest">
+    <part name="parameters" element="flow:BackboneSubscriptionCreationRequest"/>
+  </message>
+  <message name="BackboneSubscriptionCreationReply">
+    <part name="parameters" element="flow:BackboneSubscriptionCreationReply"/>
+  </message>
+  <message name="BackboneSubscriptionUpdateRequest">
+    <part name="parameters" element="flow:BackboneSubscriptionUpdateRequest"/>
+  </message>
+  <message name="BackboneSubscriptionUpdateReply">
+    <part name="parameters" element="flow:BackboneSubscriptionUpdateReply"/>
+  </message>
+  <message name="BackboneSubscriptionRetrievalRequest">
+    <part name="parameters" element="flow:BackboneSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="BackboneSubscriptionRetrievalReply">
+    <part name="parameters" element="flow:BackboneSubscriptionRetrievalReply"/>
+  </message>
+  <!--END: INNOVE RNEST experimental-->
+
+  <portType name="TacticalUpdatesService">
+    <operation name="retrieveSectorConfigurationPlan">
+      <input message="flow:SectorConfigurationPlanRetrievalRequest"/>
+      <output message="flow:SectorConfigurationPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateSectorConfigurationPlan">
+      <input message="flow:SectorConfigurationPlanUpdateRequest"/>
+      <output message="flow:SectorConfigurationPlanUpdateReply"/>
+    </operation>
+    <operation name="retrieveCapacityPlan">
+      <input message="flow:CapacityPlanRetrievalRequest"/>
+      <output message="flow:CapacityPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateCapacityPlan">
+      <input message="flow:CapacityPlanUpdateRequest"/>
+      <output message="flow:CapacityPlanUpdateReply"/>
+    </operation>
+    <operation name="retrieveTrafficVolumeActivationPlan">
+      <input message="flow:TrafficVolumeActivationPlanRetrievalRequest"/>
+      <output message="flow:TrafficVolumeActivationPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateTrafficVolumeActivationPlan">
+      <input message="flow:TrafficVolumeActivationPlanUpdateRequest"/>
+      <output message="flow:TrafficVolumeActivationPlanUpdateReply"/>
+    </operation>
+    <operation name="retrieveOTMVPlan">
+      <input message="flow:OTMVPlanRetrievalRequest"/>
+      <output message="flow:OTMVPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateOTMVPlan">
+      <input message="flow:OTMVPlanUpdateRequest"/>
+      <output message="flow:OTMVPlanUpdateReply"/>
+    </operation>
+    <operation name="retrieveRunwayConfigurationPlan">
+      <input message="flow:RunwayConfigurationPlanRetrievalRequest"/>
+      <output message="flow:RunwayConfigurationPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateRunwayConfigurationPlan">
+      <input message="flow:RunwayConfigurationPlanUpdateRequest"/>
+      <output message="flow:RunwayConfigurationPlanUpdateReply"/>
+    </operation>
+    <operation name="queryHotspots">
+      <input message="flow:HotspotListRequest"/>
+      <output message="flow:HotspotListReply"/>
+    </operation>
+    <operation name="updateHotspots">
+      <input message="flow:HotspotPlanUpdateRequest"/>
+      <output message="flow:HotspotPlanUpdateReply"/>
+    </operation>
+    <operation name="retrieveRestrictionActivationPlan">
+      <input message="flow:RestrictionActivationPlanRetrievalRequest"/>
+      <output message="flow:RestrictionActivationPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateRestrictionActivationPlan">
+      <input message="flow:RestrictionActivationPlanUpdateRequest"/>
+      <output message="flow:RestrictionActivationPlanUpdateReply"/>
+    </operation>
+    <!--START: INNOVE KPI experimental-->
+    <operation name="retrieveKPITargets">
+      <input message="flow:KPITargetsPlanRetrievalRequest"/>
+      <output message="flow:KPITargetsPlanRetrievalReply"/>
+    </operation>
+    <operation name="updateKPITargets">
+      <input message="flow:KPITargetsPlanUpdateRequest"/>
+      <output message="flow:KPITargetsPlanUpdateReply"/>
+    </operation>
+
+    <operation name="createKPITargetsPlanSubscription">
+      <input message="flow:KPITargetsPlanSubscriptionCreationRequest"/>
+      <output message="flow:KPITargetsPlanSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateKPITargetsPlanSubscription">
+      <input message="flow:KPITargetsPlanSubscriptionUpdateRequest"/>
+      <output message="flow:KPITargetsPlanSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveKPITargetsPlanSubscription">
+      <input message="flow:KPITargetsPlanSubscriptionRetrievalRequest"/>
+      <output message="flow:KPITargetsPlanSubscriptionRetrievalReply"/>
+    </operation>
+    <!--END: INNOVE KPI experimental-->
+    <!--START: INNOVE Dynamic Sector Configuration-->
+    <operation name="createSectorConfiguration">
+      <input message="flow:SectorConfigurationCreationRequest"/>
+      <output message="flow:SectorConfigurationCreationReply"/>
+    </operation>
+    <operation name="updateSectorConfiguration">
+      <input message="flow:SectorConfigurationUpdateRequest"/>
+      <output message="flow:SectorConfigurationUpdateReply"/>
+    </operation>
+    <operation name="retrieveSectorConfiguration">
+      <input message="flow:SectorConfigurationRetrievalRequest"/>
+      <output message="flow:SectorConfigurationRetrievalReply"/>
+    </operation>
+    <operation name="deleteSectorConfiguration">
+      <input message="flow:SectorConfigurationDeletionRequest"/>
+      <output message="flow:SectorConfigurationDeletionReply"/>
+    </operation>
+
+    <operation name="createSectorConfigurationPlanSubscription">
+      <input message="flow:SectorConfigurationPlanSubscriptionCreationRequest"/>
+      <output message="flow:SectorConfigurationPlanSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateSectorConfigurationPlanSubscription">
+      <input message="flow:SectorConfigurationPlanSubscriptionUpdateRequest"/>
+      <output message="flow:SectorConfigurationPlanSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveSectorConfigurationPlanSubscription">
+      <input message="flow:SectorConfigurationPlanSubscriptionRetrievalRequest"/>
+      <output message="flow:SectorConfigurationPlanSubscriptionRetrievalReply"/>
+    </operation>
+    <!--END: INNOVE Dynamic Sector Configuration-->
+    <!--START: INNOVE RNEST experimental-->
+    <operation name="retrieveBackbone">
+      <input message="flow:BackboneRetrievalRequest"/>
+      <output message="flow:BackboneRetrievalReply"/>
+    </operation>
+    <operation name="updateBackbone">
+      <input message="flow:BackboneUpdateRequest"/>
+      <output message="flow:BackboneUpdateReply"/>
+    </operation>
+    <operation name="optimiseSectorConfigurationPlan">
+      <input message="flow:OptimiseSectorConfigurationPlanRequest"/>
+      <output message="flow:OptimiseSectorConfigurationPlanReply"/>
+    </operation>
+    <operation name="retrieveSectorConfigurationPlanResults">
+      <input message="flow:OptimiseSectorConfigurationPlanResultsRetrievalRequest"/>
+      <output message="flow:OptimiseSectorConfigurationPlanResultsRetrievalReply"/>
+    </operation>
+
+    <operation name="createBackboneSubscription">
+      <input message="flow:BackboneSubscriptionCreationRequest"/>
+      <output message="flow:BackboneSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateBackboneSubscription">
+      <input message="flow:BackboneSubscriptionUpdateRequest"/>
+      <output message="flow:BackboneSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveBackboneSubscription">
+      <input message="flow:BackboneSubscriptionRetrievalRequest"/>
+      <output message="flow:BackboneSubscriptionRetrievalReply"/>
+    </operation>
+    <!--END: INNOVE RNEST experimental-->
+<!-- START : TO BE INNOVE Added -->
+    <operation name="queryNetspots">
+      <input message="flow:NetspotListRequest"/>
+      <output message="flow:NetspotListReply"/>
+    </operation>
+    <operation name="updateNetspot">
+      <input message="flow:NetspotUpdateRequest"/>
+      <output message="flow:NetspotUpdateReply"/>
+    </operation>
+    <!--<operation name="queryDCBProblems">
+      <input message="flow:DCBProblemListRequest"/>
+      <output message="flow:DCBProblemListReply"/>
+    </operation>
+    <operation name="updateDCBProblem">
+      <input message="flow:DCBProblemUpdateRequest"/>
+      <output message="flow:DCBProblemUpdateReply"/>
+    </operation>-->
+<!-- END : TO BE INNOVE Added -->
+  </portType>
+
+  <binding name="TacticalUpdatesPortBinding" type="flow:TacticalUpdatesService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="retrieveSectorConfigurationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateSectorConfigurationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveCapacityPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateCapacityPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveTrafficVolumeActivationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateTrafficVolumeActivationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveOTMVPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateOTMVPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveRunwayConfigurationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRunwayConfigurationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryHotspots">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateHotspots">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveRestrictionActivationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateRestrictionActivationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!--START: INNOVE KPI experimental-->
+    <operation name="retrieveKPITargets">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateKPITargets">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+
+    <operation name="createKPITargetsPlanSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateKPITargetsPlanSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveKPITargetsPlanSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!--END: INNOVE KPI experimental-->
+    <!--START: INNOVE Dynamic Sector Configuration-->
+    <operation name="createSectorConfiguration">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateSectorConfiguration">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveSectorConfiguration">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteSectorConfiguration">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+
+    <operation name="createSectorConfigurationPlanSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateSectorConfigurationPlanSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveSectorConfigurationPlanSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!--END: INNOVE Dynamic Sector Configuration-->
+    <!--START: INNOVE RNEST experimental-->
+    <operation name="retrieveBackbone">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateBackbone">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="optimiseSectorConfigurationPlan">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveSectorConfigurationPlanResults">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+
+    <operation name="createBackboneSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateBackboneSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveBackboneSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!--END: INNOVE RNEST experimental-->
+    <!-- START : TO BE INNOVE Added -->
+    <operation name="queryNetspots">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateNetspot">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!-- END : TO BE INNOVE Added -->
+  </binding>
+
+  <service name="TacticalUpdatesService">
+    <port name="TacticalUpdatesPort" binding="flow:TacticalUpdatesPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="SimulationListRequest">
+    <part name="parameters" element="flow:SimulationListRequest"/>
+  </message>
+  <message name="SimulationListReply">
+    <part name="parameters" element="flow:SimulationListReply"/>
+  </message>
+  <message name="SimulationAvailabilityRequest">
+    <part name="parameters" element="flow:SimulationAvailabilityRequest"/>
+  </message>
+  <message name="SimulationAvailabilityReply">
+    <part name="parameters" element="flow:SimulationAvailabilityReply"/>
+  </message>
+  <message name="SimulationStartRequest">
+    <part name="parameters" element="flow:SimulationStartRequest"/>
+  </message>
+  <message name="SimulationStartReply">
+    <part name="parameters" element="flow:SimulationStartReply"/>
+  </message>
+  <message name="SimulationStopRequest">
+    <part name="parameters" element="flow:SimulationStopRequest"/>
+  </message>
+  <message name="SimulationStopReply">
+    <part name="parameters" element="flow:SimulationStopReply"/>
+  </message>
+  <message name="SimulationResetRequest">
+    <part name="parameters" element="flow:SimulationResetRequest"/>
+  </message>
+  <message name="SimulationResetReply">
+    <part name="parameters" element="flow:SimulationResetReply"/>
+  </message>
+
+  <portType name="SimulationsService">
+    <operation name="querySimulations">
+      <input message="flow:SimulationListRequest"/>
+      <output message="flow:SimulationListReply"/>
+    </operation>
+    <operation name="queryAvailableSimulations">
+      <input message="flow:SimulationAvailabilityRequest"/>
+      <output message="flow:SimulationAvailabilityReply"/>
+    </operation>
+    <operation name="startSimulation">
+      <input message="flow:SimulationStartRequest"/>
+      <output message="flow:SimulationStartReply"/>
+    </operation>
+    <operation name="stopSimulation">
+      <input message="flow:SimulationStopRequest"/>
+      <output message="flow:SimulationStopReply"/>
+    </operation>
+    <operation name="resetSimulation">
+      <input message="flow:SimulationResetRequest"/>
+      <output message="flow:SimulationResetReply"/>
+    </operation>
+  </portType>
+
+  <binding name="SimulationsPortBinding" type="flow:SimulationsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="querySimulations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="queryAvailableSimulations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="startSimulation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="stopSimulation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="resetSimulation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="SimulationsService">
+    <port name="SimulationsPort" binding="flow:SimulationsPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="ScenarioRegulationRetrievalRequest">
+    <part name="parameters" element="flow:ScenarioRegulationRetrievalRequest"/>
+  </message>
+  <message name="ScenarioRegulationRetrievalReply">
+    <part name="parameters" element="flow:ScenarioRegulationRetrievalReply"/>
+  </message>
+  <message name="ScenarioReroutingRetrievalRequest">
+    <part name="parameters" element="flow:ScenarioReroutingRetrievalRequest"/>
+  </message>
+  <message name="ScenarioReroutingRetrievalReply">
+    <part name="parameters" element="flow:ScenarioReroutingRetrievalReply"/>
+  </message>
+  <!-- START: INNOVE 25 Compatibility -->
+  <message name="ScenarioMCDMOnlyRetrievalRequest">
+    <part name="parameters" element="flow:ScenarioMCDMOnlyRetrievalRequest"/>
+  </message>
+  <message name="ScenarioMCDMOnlyRetrievalReply">
+    <part name="parameters" element="flow:ScenarioMCDMOnlyRetrievalReply"/>
+  </message>
+  <!-- END: INNOVE 25 Compatbility -->
+  <message name="ScenarioListRequest">
+    <part name="parameters" element="flow:ScenarioListRequest"/>
+  </message>
+  <message name="ScenarioListReply">
+    <part name="parameters" element="flow:ScenarioListReply"/>
+  </message>
+
+  <portType name="ScenarioRepositoryService">
+    <operation name="retrieveRegulationsFromScenario">
+      <input message="flow:ScenarioRegulationRetrievalRequest"/>
+      <output message="flow:ScenarioRegulationRetrievalReply"/>
+    </operation>
+    <operation name="retrieveReroutingsFromScenario">
+      <input message="flow:ScenarioReroutingRetrievalRequest"/>
+      <output message="flow:ScenarioReroutingRetrievalReply"/>
+    </operation>
+    <!-- START: INNOVE 25 Compatibility -->
+    <operation name="retrieveMCDMOnlyFromScenario">
+      <input message="flow:ScenarioMCDMOnlyRetrievalRequest"/>
+      <output message="flow:ScenarioMCDMOnlyRetrievalReply"/>
+    </operation>
+    <!-- END: INNOVE 25 Compatibility -->
+    <operation name="queryScenarioRepository">
+      <input message="flow:ScenarioListRequest"/>
+      <output message="flow:ScenarioListReply"/>
+    </operation>
+  </portType>
+
+  <binding name="ScenarioRepositoryPortBinding" type="flow:ScenarioRepositoryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="retrieveRegulationsFromScenario">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveReroutingsFromScenario">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!-- START: INNOVE 25 Compatibility -->
+    <operation name="retrieveMCDMOnlyFromScenario">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <!-- END: START: INNOVE 25 Compatibility -->
+    <operation name="queryScenarioRepository">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="ScenarioRepositoryService">
+    <port name="ScenarioRepositoryPort" binding="flow:ScenarioRepositoryPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+
+  <!--START: INNOVE KPI experimental-->
+  <message name="TrafficMetricsByAirspaceRequest">
+    <part name="parameters" element="flow:TrafficMetricsByAirspaceRequest"/>
+  </message>
+  <message name="TrafficMetricsByAirspaceReply">
+    <part name="parameters" element="flow:TrafficMetricsByAirspaceReply"/>
+  </message>
+
+  <portType name="TrafficMetricsService">
+    <operation name="computeAirspaceMetrics">
+      <input message="flow:TrafficMetricsByAirspaceRequest"/>
+      <output message="flow:TrafficMetricsByAirspaceReply"/>
+    </operation>
+  </portType>
+
+  <binding name="TrafficMetricsPortBinding" type="flow:TrafficMetricsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="computeAirspaceMetrics">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="TrafficMetricsService">
+    <port name="TrafficMetricsPort" binding="flow:TrafficMetricsPortBinding">
+      <soap:address location="https://www.b2b.nm.eurocontrol.int/B2B_OPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <!--END: INNOVE KPI experimental-->
+
+</definitions>

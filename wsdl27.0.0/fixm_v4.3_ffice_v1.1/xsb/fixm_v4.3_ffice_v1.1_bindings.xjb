@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="3.0"
+    xmlns:jxb="https://jakarta.ee/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jaxb https://jakarta.ee/xml/ns/jaxb/bindingschema_2_0.xsd">
+
+  <jxb:globalBindings>
+    <xjc:serializable uid="1"/>
+  </jxb:globalBindings>
+
+
+  <jxb:bindings schemaLocation="./../schemas/core/base/Base.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.base"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../schemas/core/flight/Flight.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="aero.fixm.v4_3_0.flight"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../schemas/applications/fficemessage/FficeMessage.xsd" node="//xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="eurocontrol.cfmu.cua.b2b.ffice.v1_1_0.fficemessage"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+</jxb:bindings>

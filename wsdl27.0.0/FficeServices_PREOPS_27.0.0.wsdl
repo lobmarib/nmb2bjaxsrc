@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- B2B revision = 27.0.0.5.128 -->
+<definitions
+    targetNamespace="eurocontrol/cfmu/b2b/FficeServices"
+    name="FficeServices"
+    xmlns:ffice="eurocontrol/cfmu/b2b/FficeServices"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <types>
+    <xs:schema>
+      <xs:import namespace="eurocontrol/cfmu/b2b/FficeServices" schemaLocation="FficeServices_27.0.0.xsd"/>
+    </xs:schema>
+  </types>
+
+  <message name="FiledFlightPlanRequest">
+    <part name="parameters" element="ffice:FiledFlightPlanRequest"/>
+  </message>
+  <message name="FiledFlightPlanReply">
+    <part name="parameters" element="ffice:FiledFlightPlanReply"/>
+  </message>
+  <message name="FlightPlanUpdateRequest">
+    <part name="parameters" element="ffice:FlightPlanUpdateRequest"/>
+  </message>
+  <message name="FlightPlanUpdateReply">
+    <part name="parameters" element="ffice:FlightPlanUpdateReply"/>
+  </message>
+  <message name="FlightPlanCancellationRequest">
+    <part name="parameters" element="ffice:FlightPlanCancellationRequest"/>
+  </message>
+  <message name="FlightPlanCancellationReply">
+    <part name="parameters" element="ffice:FlightPlanCancellationReply"/>
+  </message>
+  <message name="FficeFlightFilingSubscriptionCreationRequest">
+    <part name="parameters" element="ffice:FficeFlightFilingSubscriptionCreationRequest"/>
+  </message>
+  <message name="FficeFlightFilingSubscriptionCreationReply">
+    <part name="parameters" element="ffice:FficeFlightFilingSubscriptionCreationReply"/>
+  </message>
+  <message name="FficeFlightFilingSubscriptionUpdateRequest">
+    <part name="parameters" element="ffice:FficeFlightFilingSubscriptionUpdateRequest"/>
+  </message>
+  <message name="FficeFlightFilingSubscriptionUpdateReply">
+    <part name="parameters" element="ffice:FficeFlightFilingSubscriptionUpdateReply"/>
+  </message>
+  <message name="FficeFlightFilingSubscriptionRetrievalRequest">
+    <part name="parameters" element="ffice:FficeFlightFilingSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="FficeFlightFilingSubscriptionRetrievalReply">
+    <part name="parameters" element="ffice:FficeFlightFilingSubscriptionRetrievalReply"/>
+  </message>
+
+  <portType name="FilingServiceService">
+    <operation name="submitFiledFlightPlanRequest">
+      <input message="ffice:FiledFlightPlanRequest"/>
+      <output message="ffice:FiledFlightPlanReply"/>
+    </operation>
+    <operation name="submitFlightPlanUpdateRequest">
+      <input message="ffice:FlightPlanUpdateRequest"/>
+      <output message="ffice:FlightPlanUpdateReply"/>
+    </operation>
+    <operation name="submitFlightPlanCancellationRequest">
+      <input message="ffice:FlightPlanCancellationRequest"/>
+      <output message="ffice:FlightPlanCancellationReply"/>
+    </operation>
+    <operation name="createFficeFlightFilingSubscription">
+      <input message="ffice:FficeFlightFilingSubscriptionCreationRequest"/>
+      <output message="ffice:FficeFlightFilingSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateFficeFlightFilingSubscription">
+      <input message="ffice:FficeFlightFilingSubscriptionUpdateRequest"/>
+      <output message="ffice:FficeFlightFilingSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveFficeFlightFilingSubscription">
+      <input message="ffice:FficeFlightFilingSubscriptionRetrievalRequest"/>
+      <output message="ffice:FficeFlightFilingSubscriptionRetrievalReply"/>
+    </operation>
+  </portType>
+
+  <binding name="FilingServicePortBinding" type="ffice:FilingServiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="submitFiledFlightPlanRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="submitFlightPlanUpdateRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="submitFlightPlanCancellationRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createFficeFlightFilingSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateFficeFlightFilingSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveFficeFlightFilingSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="FilingServiceService">
+    <port name="FilingServicePort" binding="ffice:FilingServicePortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="TrialRequest">
+    <part name="parameters" element="ffice:TrialRequest"/>
+  </message>
+  <message name="TrialReply">
+    <part name="parameters" element="ffice:TrialReply"/>
+  </message>
+
+  <portType name="TrialServiceService">
+    <operation name="submitTrialRequest">
+      <input message="ffice:TrialRequest"/>
+      <output message="ffice:TrialReply"/>
+    </operation>
+  </portType>
+
+  <binding name="TrialServicePortBinding" type="ffice:TrialServiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="submitTrialRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="TrialServiceService">
+    <port name="TrialServicePort" binding="ffice:TrialServicePortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="FlightDataRequest">
+    <part name="parameters" element="ffice:FlightDataRequest"/>
+  </message>
+  <message name="FlightDataReply">
+    <part name="parameters" element="ffice:FlightDataReply"/>
+  </message>
+  <message name="SubmissionStatusRetrievalRequest">
+    <part name="parameters" element="ffice:SubmissionStatusRetrievalRequest"/>
+  </message>
+  <message name="SubmissionStatusRetrievalReply">
+    <part name="parameters" element="ffice:SubmissionStatusRetrievalReply"/>
+  </message>
+
+  <portType name="FlightDataRequestServiceService">
+    <operation name="submitFlightDataRequest">
+      <input message="ffice:FlightDataRequest"/>
+      <output message="ffice:FlightDataReply"/>
+    </operation>
+    <operation name="submitSubmissionStatusRetrievalRequest">
+      <input message="ffice:SubmissionStatusRetrievalRequest"/>
+      <output message="ffice:SubmissionStatusRetrievalReply"/>
+    </operation>
+  </portType>
+
+  <binding name="FlightDataRequestServicePortBinding" type="ffice:FlightDataRequestServiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="submitFlightDataRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="submitSubmissionStatusRetrievalRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="FlightDataRequestServiceService">
+    <port name="FlightDataRequestServicePort" binding="ffice:FlightDataRequestServicePortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="FlightDepartureRequest">
+    <part name="parameters" element="ffice:FlightDepartureRequest"/>
+  </message>
+  <message name="FlightDepartureReply">
+    <part name="parameters" element="ffice:FlightDepartureReply"/>
+  </message>
+  <message name="FlightArrivalRequest">
+    <part name="parameters" element="ffice:FlightArrivalRequest"/>
+  </message>
+  <message name="FlightArrivalReply">
+    <part name="parameters" element="ffice:FlightArrivalReply"/>
+  </message>
+
+  <portType name="NotificationServiceService">
+    <operation name="submitFlightDepartureRequest">
+      <input message="ffice:FlightDepartureRequest"/>
+      <output message="ffice:FlightDepartureReply"/>
+    </operation>
+    <operation name="submitFlightArrivalRequest">
+      <input message="ffice:FlightArrivalRequest"/>
+      <output message="ffice:FlightArrivalReply"/>
+    </operation>
+  </portType>
+
+  <binding name="NotificationServicePortBinding" type="ffice:NotificationServiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="submitFlightDepartureRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="submitFlightArrivalRequest">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="NotificationServiceService">
+    <port name="NotificationServicePort" binding="ffice:NotificationServicePortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+  <message name="FficePublicationSubscriptionCreationRequest">
+    <part name="parameters" element="ffice:FficePublicationSubscriptionCreationRequest"/>
+  </message>
+  <message name="FficePublicationSubscriptionCreationReply">
+    <part name="parameters" element="ffice:FficePublicationSubscriptionCreationReply"/>
+  </message>
+  <message name="FficePublicationSubscriptionUpdateRequest">
+    <part name="parameters" element="ffice:FficePublicationSubscriptionUpdateRequest"/>
+  </message>
+  <message name="FficePublicationSubscriptionUpdateReply">
+    <part name="parameters" element="ffice:FficePublicationSubscriptionUpdateReply"/>
+  </message>
+  <message name="FficePublicationSubscriptionRetrievalRequest">
+    <part name="parameters" element="ffice:FficePublicationSubscriptionRetrievalRequest"/>
+  </message>
+  <message name="FficePublicationSubscriptionRetrievalReply">
+    <part name="parameters" element="ffice:FficePublicationSubscriptionRetrievalReply"/>
+  </message>
+
+  <portType name="PublicationServiceService">
+    <operation name="createFficePublicationSubscription">
+      <input message="ffice:FficePublicationSubscriptionCreationRequest"/>
+      <output message="ffice:FficePublicationSubscriptionCreationReply"/>
+    </operation>
+    <operation name="updateFficePublicationSubscription">
+      <input message="ffice:FficePublicationSubscriptionUpdateRequest"/>
+      <output message="ffice:FficePublicationSubscriptionUpdateReply"/>
+    </operation>
+    <operation name="retrieveFficePublicationSubscription">
+      <input message="ffice:FficePublicationSubscriptionRetrievalRequest"/>
+      <output message="ffice:FficePublicationSubscriptionRetrievalReply"/>
+    </operation>
+  </portType>
+
+  <binding name="PublicationServicePortBinding" type="ffice:PublicationServiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="createFficePublicationSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateFficePublicationSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="retrieveFficePublicationSubscription">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="PublicationServiceService">
+    <port name="PublicationServicePort" binding="ffice:PublicationServicePortBinding">
+      <soap:address location="https://www.b2b.preops.nm.eurocontrol.int/B2B_PREOPS/gateway/spec/27.0.0"/>
+    </port>
+  </service>
+
+</definitions>
